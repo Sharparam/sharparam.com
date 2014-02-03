@@ -28,9 +28,10 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
 
+# Use sqlite3 as the database for Active Record in development
+gem 'sqlite3'
+
 group :development do
-    # Use sqlite3 as the database for Active Record in development
-    gem 'sqlite3'
     # Use Capistrano for deployment
     gem 'capistrano', group: :development
     gem 'rvm-capistrano', group: :development
