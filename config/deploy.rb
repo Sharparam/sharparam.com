@@ -28,7 +28,6 @@ namespace :deploy do
 
     task :setup_config, roles: :app do
         sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-        run "chmod +x #{current_path}/config/unicorn_init.sh"
         sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
         run "mkdir -p #{shared_path}/config"
         put File.read("config/database.yml.example"), "#{shared_path}/config/database.yml"
@@ -42,6 +41,12 @@ namespace :deploy do
     end
 
     after "deploy:finalize_update", "deploy:symlink_config"
+
+    task :fix_unicorn_script, roles: :app do
+        run "chmod +x #{current_path}/config/unicorn_init.sh"
+    end
+
+    after "deploy:create_symlink", "deploy:fix_unicorn_script"
 
     desc "Make sure local git is in sync with remote."
     task :check_revision, roles: :web do
