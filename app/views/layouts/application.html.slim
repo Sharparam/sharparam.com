@@ -1,0 +1,34 @@
+doctype 5
+html
+    head
+        meta charset="utf-8"
+        meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+        meta http-equiv="X-UA-Compatible" content="IE=edge"
+        meta name="viewport" content="width=device-width, initial-scale=1"
+        meta name="description" content=""
+        meta name="keywords" content=""
+        meta name="author" content="Adam Hellberg <sharparam@sharparam.com>"
+        title Sharparam
+        == stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+        == javascript_include_tag "application", "data-turbolinks-track" => true
+        == csrf_meta_tags
+    body
+        #wrap
+            .navbar.navbar-default.navbar-static-top role="navigation"
+                .container
+                    .navbar-header
+                        button[type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"]
+                            span.sr-only Toggle Navigation
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a.navbar-brand href="#" Sharparam
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav
+                            li: a href="/" Home
+                            li: a href="http://files.sharparam.com/" Files
+            .container
+                == yield
+        footer
+            .container
+                p.text-muted Copyright &copy; 2014 by Adam Hellberg.
