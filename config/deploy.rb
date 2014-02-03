@@ -42,11 +42,11 @@ namespace :deploy do
 
     after "deploy:finalize_update", "deploy:symlink_config"
 
-    task :fix_unicorn_script, roles: :app do
-        run "chmod +x #{current_path}/config/unicorn_init.sh"
-    end
+    #task :fix_unicorn_script, roles: :app do
+    #    run "chmod +x #{current_path}/config/unicorn_init.sh"
+    #end
 
-    after "deploy:create_symlink", "deploy:fix_unicorn_script"
+    #after "deploy:create_symlink", "deploy:fix_unicorn_script"
 
     desc "Make sure local git is in sync with remote."
     task :check_revision, roles: :web do
