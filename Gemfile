@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'dotenv-rails'
+#gem 'dotenv-rails'
+
+gem 'figaro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'

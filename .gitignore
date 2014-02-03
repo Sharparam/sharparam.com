@@ -34,3 +34,6 @@ config/secrets.yml
 
 # Ignore Dotenv file
 .env
+
+# Ignore application configuration
+/config/application.yml
