@@ -2,8 +2,8 @@ APP_PATH = "/home/rails/apps/sharparam.com"
 APP_CURRENT = "#{APP_PATH}/current"
 working_directory APP_CURRENT
 pid "#{APP_CURRENT}/tmp/pids/unicorn.pid"
-stdout_path "#{APP_ROOT}/shared/log/unicorn.log"
-stderr_path "#{APP_ROOT}/shared/log/unicorn.err.log"
+stdout_path "#{APP_PATH}/shared/log/unicorn.log"
+stderr_path "#{APP_PATH}/shared/log/unicorn.err.log"
 
 listen "/tmp/unicorn.sharparamcom.sock"
 worker_processes 2
