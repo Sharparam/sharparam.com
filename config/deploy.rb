@@ -3,7 +3,7 @@ require "rvm/capistrano"
 
 server "sharparam.com", :web, :app, :db, primary: true
 
-set :application, "sharpraram.com"
+set :application, "sharparam.com"
 set :user, "rails"
 set :port, 2553
 set :deploy_to, "/home/#{user}/apps/#{application}"
