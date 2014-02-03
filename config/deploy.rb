@@ -36,11 +36,12 @@ namespace :deploy do
 
     after "deploy:setup", "deploy:setup_config"
 
-    task :symlink_config, roles: :app do
+    task :symlink_configs, roles: :app do
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+        run "ln -nfs #{shared_path}/.env #{release_path}/.env"
     end
 
-    after "deploy:finalize_update", "deploy:symlink_config"
+    after "deploy:finalize_update", "deploy:symlink_configs"
 
     #task :fix_unicorn_script, roles: :app do
     #    run "chmod +x #{current_path}/config/unicorn_init.sh"

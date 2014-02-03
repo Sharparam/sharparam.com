@@ -31,6 +31,8 @@ gem 'slim'
 # Use sqlite3 as the database for Active Record in development
 gem 'sqlite3'
 
+gem 'dotenv-rails'
+
 group :development do
     # Use Capistrano for deployment
     gem 'capistrano', group: :development

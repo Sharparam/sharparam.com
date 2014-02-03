@@ -12,7 +12,7 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-config/initializers/secret_token.rb
+#config/initializers/secret_token.rb # token is set via ENV
 config/secrets.yml
 
 ## Environment normalisation:
@@ -31,3 +31,6 @@ config/secrets.yml
 
 # Ignore log files but keep log directory
 /shared/log/*.log
+
+# Ignore Dotenv file
+.env
