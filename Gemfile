@@ -31,6 +31,9 @@ gem 'slim'
 group :development do
     # Use sqlite3 as the database for Active Record in development
     gem 'sqlite3'
+    # Use Capistrano for deployment
+    gem 'capistrano', group: :development
+    gem 'rvm-capistrano', group: :development
 end
 
 group :production do
@@ -44,9 +47,6 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
