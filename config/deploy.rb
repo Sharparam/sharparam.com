@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
+require "dotenv/capistrano"
 
 server "sharparam.com", :web, :app, :db, primary: true
 
@@ -38,7 +39,7 @@ namespace :deploy do
 
     task :symlink_configs, roles: :app do
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-        run "ln -nfs #{shared_path}/.env #{release_path}/.env"
+        #run "ln -nfs #{shared_path}/.env #{release_path}/.env"
     end
 
     after "deploy:finalize_update", "deploy:symlink_configs"
