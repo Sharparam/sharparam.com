@@ -15,7 +15,7 @@ TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/rails/apps/sharparam.com
 APP_CURRENT=$APP_ROOT/current
 PID=$APP_CURRENT/tmp/pids/unicorn.pid
-CMD="cd $APP_CURRENT; bundle exec unicorn -D -c $APP_CURRENT/config/unicorn.rb -E development"
+CMD="cd $APP_CURRENT; bundle exec unicorn -D -c $APP_CURRENT/config/unicorn.rb -E production"
 AS_USER=rails
 set -u
 
