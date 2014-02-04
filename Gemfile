@@ -40,12 +40,10 @@ gem 'sqlite3'
 
 group :development do
     # Use Guard to monitor file changes
-    #gem 'rb-inotify'
     gem 'guard'
     gem 'guard-bundler'
     gem 'guard-rails'
     gem 'guard-livereload'
-    #gem 'rack-livereload'
 
     # Use Capistrano for deployment
     gem 'capistrano', group: :development
