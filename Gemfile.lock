@@ -194,7 +194,6 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.2)
-  rb-inotify
   rvm-capistrano
   sass-rails (~> 4.0.0)
   sdoc
