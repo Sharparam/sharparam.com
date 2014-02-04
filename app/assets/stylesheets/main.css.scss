@@ -10,6 +10,10 @@ html, body {
     height: 100%;
 }
 
+body {
+    background: image-url('shattered.png') repeat;
+}
+
 .navbar {
     margin-bottom: 0 !important;
 }
