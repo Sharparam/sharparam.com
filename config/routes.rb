@@ -5,6 +5,7 @@ SharparamCom::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
 
+  get 'projects' => 'pages#projects'
   get 'about' => 'pages#about'
 
   # Example of regular route:
