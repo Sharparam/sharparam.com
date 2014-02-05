@@ -103,6 +103,7 @@ GEM
     net-ssh (2.8.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    pg (0.17.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -193,6 +194,7 @@ DEPENDENCIES
   guard-rails
   jbuilder (~> 1.2)
   jquery-rails
+  pg
   rails (= 4.0.2)
   rvm-capistrano
   sass-rails (~> 4.0.0)
