@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-#gem 'dotenv-rails'
-#gem 'figaro'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -10,8 +7,6 @@ gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 
 gem 'bootstrap-sass', '~> 3.1.0.1'
-
-#gem 'bootswatch-rails'
 
 gem 'font-awesome-sass'
 
@@ -35,10 +30,10 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
 
-# Use sqlite3 as the database for Active Record in development
-gem 'sqlite3'
-
 group :development do
+    # Use sqlite3 as the database for Active Record in development
+    gem 'sqlite3'
+
     # Use Guard to monitor file changes
     gem 'guard'
     gem 'guard-bundler'
@@ -51,6 +46,8 @@ group :development do
 end
 
 group :production do
+    # Use PostgreSQL in production
+    gem 'pg'
     gem 'unicorn'
 end
 
