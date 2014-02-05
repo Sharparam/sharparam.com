@@ -10,6 +10,7 @@ html
         meta name="author" content="Adam Hellberg <sharparam@sharparam.com>"
         title Sharparam
         == stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+        == favicon_link_tag "/favicon.ico"
         == javascript_include_tag "application", "data-turbolinks-track" => true
         == csrf_meta_tags
     body
@@ -19,9 +20,9 @@ html
                     .navbar-header
                         button[type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"]
                             span.sr-only Toggle Navigation
-                            span.icon-bar
-                            span.icon-bar
-                            span.icon-bar
+                            / This is the story of how a repetitive 3-liner turned into a 2-liner
+                            - 3.times do
+                                span.icon-bar
                         a.navbar-brand href="#" Sharparam
                     .navbar-collapse.collapse
                         ul.nav.navbar-nav
@@ -35,7 +36,9 @@ html
             == yield
         footer
             .container
-                p.text-muted.pull-left Copyright &copy; 2014 by Adam Hellberg
+                p.text-muted.pull-left
+                 | Copyright &copy; 2014 by Adam Hellberg.
+                 a< href="https://github.com/Sharparam/sharparam.com" This site is open-source!
                 p.pull-right
                     a.icon-link href="https://github.com/Sharparam" title="GitHub Profile"
                         i.fa.fa-github-alt.fa-2x.fa-fw
