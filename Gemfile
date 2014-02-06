@@ -30,6 +30,15 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'slim'
 
+gem 'simple_form'
+gem 'country_select'
+
+# Authentication gems
+gem 'devise'
+#gem 'omniauth'
+#gem 'omniauth-github'
+#gem 'cancan'
+
 group :development do
     # Use sqlite3 as the database for Active Record in development
     gem 'sqlite3'

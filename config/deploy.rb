@@ -40,6 +40,8 @@ namespace :deploy do
     task :symlink_configs, roles: :app do
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
         run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
+        run "ln -nfs #{shared_path}/config/github.yml #{release_path}/config/github.yml"
+        run "ln -nfs #{shared_path}/config/devise.yml #{release_path}/config/devise.yml"
         #run "ln -nfs #{shared_path}/.env #{release_path}/.env"
         #run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
     end
