@@ -8,8 +8,9 @@
             .form-inputs
                 = f.input :username, required: true, autofocus: true
                 = f.input :email, required: true, autofocus: true
-                = f.input :password, required: true
-                = f.input :password_confirmation, required: true
+                - if f.object.password_required?
+                    = f.input :password, required: true
+                    = f.input :password_confirmation, required: true
 
             .form-actions
                 = f.button :submit, "Sign up", class: 'btn-primary'
