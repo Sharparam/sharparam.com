@@ -1,11 +1,16 @@
 - if @posts_by_year and @posts_by_month
     .sidebar-module
         h4 Archive
-        ul
-            - @posts_by_year.each do |year, posts|
-                li #{year.year} (#{posts.count})
-                ul
-                    - posts.group_by { |p| p.created_at.beginning_of_month }.each do |month, posts|
-                        li
-                         => link_to "#{month.strftime('%B')}", posts_archive_posts_path(year.year, month.strftime('%m'))
-                         | (#{posts.count})
+        - @posts_by_year.each do |year, posts|
+            a.archive-year class="#{year.year == Date.current.year ? 'open' : 'closed'}" href="#months-#{year.year}" data-toggle="collapse" data-target="#months-#{year.year}"
+             i.glyphicon.glyphicon-folder-open
+             i.glyphicon.glyphicon-folder-close
+             | #{year.year}
+             span.badge #{posts.count}
+            ul.collapse.list-unstyled.archive-months id="months-#{year.year}" class="#{'in' if year.year == Date.current.year}"
+                - posts.group_by { |p| p.created_at.beginning_of_month }.each do |month, posts|
+                    li.archive-month
+                        a href=posts_archive_posts_path(year.year, month.strftime('%m'))
+                         i.glyphicon.glyphicon-list
+                         | #{month.strftime('%B')}
+                         span.badge #{posts.count}

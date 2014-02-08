@@ -78,3 +78,47 @@
 textarea#post_content {
     font-family: Consolas, 'Source Code Pro', 'Ubuntu Mono', 'Deja Vu Mono', monospace;
 }
+
+.archive-year {
+    i {
+        margin-right: 10px;
+        color: black;
+    }
+
+    span.badge {
+        margin-left: 10px;
+    }
+
+    &.open {
+        i.glyphicon-folder-open {
+            display: inline-block;
+        }
+
+        i.glyphicon-folder-close {
+            display: none;
+        }
+    }
+
+    &.closed {
+        i.glyphicon-folder-open {
+            display: none;
+        }
+
+        i.glyphicon-folder-close {
+            display: inline-block;
+        }
+    }
+}
+
+.archive-month {
+    margin-left: 20px;
+
+    i {
+        margin-right: 10px;
+        color: black;
+    }
+
+    span.badge {
+        margin-left: 10px;
+    }
+}
