@@ -8,7 +8,9 @@ html
         meta name="description" content=""
         meta name="keywords" content=""
         meta name="author" content="Adam Hellberg <sharparam@sharparam.com>"
-        title Sharparam
+        title
+         | Sharparam
+         == yield :title
         == stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
         == favicon_link_tag "/favicon.ico"
         == javascript_include_tag "application", "data-turbolinks-track" => true
@@ -28,6 +30,8 @@ html
                         ul.nav.navbar-nav
                             li class="#{current_page?(root_path) && 'active'}"
                                 = link_to 'Home', root_path
+                            li class="#{current_page?(posts_path) && 'active'}"
+                                = link_to 'Blog', posts_path
                             li class="#{current_page?(projects_path) && 'active'}"
                                 = link_to 'Projects', projects_path
                             li class="#{current_page?(about_path) && 'active'}"
@@ -51,7 +55,7 @@ html
                             div[class="#{flash_class(level)} alert-dismissable"]
                                 button type="button" class="close" data-dismiss="alert" aria-hidden="true" &times;
                                 == msg
-                == yield
+                == content_for?(:content) ? yield(:content) : yield
         footer
             .container
                 p.text-muted.pull-left

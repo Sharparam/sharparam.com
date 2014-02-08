@@ -55,11 +55,11 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :readonly
 
-    b.use :label,  class: 'col-sm-5 control-label'
+    b.use :label,  class: 'col-sm-2 control-label'
 
-    b.wrapper tag: 'div', class: 'col-sm-7' do |input_block|
-      input_block.use :input
-      input_block.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+    b.wrapper tag: 'div', class: 'col-sm-10' do |input_block|
+      input_block.use :input, class: 'form-control'
+      input_block.use :hint, wrap_with: { tag: 'span', class: 'help-block' }
     end
     b.use :error, wrap_with: { tag: 'span', class: 'help-block has-error' }
   end

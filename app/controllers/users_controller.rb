@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     load_and_authorize_resource
-    before_action :set_user, only: [:show, :edit, :update, :destroy]
+    #before_action :set_user, only: [:show, :edit, :update, :destroy]
 
     # GET /users
     # GET /users.json
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
           redirect_to root_path
         end
 
-        @users = User.all
+        #@users = User.all
     end
 
     # GET /users/1
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     # GET /users/new
     def new
-        @user = User.new
+        #@user = User.new
     end
 
     # GET /users/1/edit
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     # POST /users
     # POST /users.json
     def create
-        @user = User.new(user_params)
+        #@user = User.new(user_params)
 
         respond_to do |format|
             if @user.save

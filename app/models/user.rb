@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
     attr_accessor :login
 
+    has_many :posts
+
     validates :username, uniqueness: { case_sensitive: false }
 
     def self.find_first_by_auth_conditions(warden_conditions)
@@ -52,5 +54,9 @@ class User < ActiveRecord::Base
 
     def is_admin?
         self.admin
+    end
+
+    def to_s
+        self.username
     end
 end

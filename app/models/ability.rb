@@ -35,6 +35,8 @@ class Ability
         can :manage, :all
     else
         can :read, User, id: user.id
+        can :read, Post
+        can [:update, :destroy], Post, user_id: user.id
     end
   end
 end

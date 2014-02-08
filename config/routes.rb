@@ -12,6 +12,7 @@ SharparamCom::Application.routes.draw do
   root 'pages#index'
 
   resources :users
+  resources :posts
 
   get 'projects' => 'pages#projects'
   get 'about' => 'pages#about'

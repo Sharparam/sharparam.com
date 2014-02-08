@@ -1,0 +1,32 @@
+- title 'Blog'
+
+- content_for :content do
+    .blog-header
+        h1.blog-title A blog of sorts...
+        p.lead.blog-description A generic bootstrap blog following the thoughts of me!
+    .row
+        .col-sm-8.blog-main
+            == yield
+        .col-sm-3.col-sm-offset-1
+            - if can? :create, Post
+                .sidebar-module
+                    = link_to 'New Post', new_post_path, class: 'btn btn-primary btn-lg btn-block'
+                    - if @post and @post.id?
+                        -if can? :edit, @post
+                            = link_to 'Edit Post', edit_post_path(@post), class: 'btn btn-primary btn-lg btn-block'
+                        -if can? :destroy, @post
+                            = link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg btn-block'
+            .sidebar-module.sidebar-module-inset
+                h4 About
+                p Lorem ipsum, the quick brown fox jumps over the lazy dog.
+            .sidebar-module
+                h4 Archive
+                ol.list-unstyled
+                    li This
+                    li Section
+                    li Will
+                    li Need
+                    li More
+                    li Content
+
+= render template: "layouts/application"

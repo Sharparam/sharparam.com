@@ -1,0 +1,9 @@
+= simple_form_for @post do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, placeholder: "Title", label: false
+    = f.input :content, placeholder: "Content", input_html: { rows: 20 }, label: false
+
+  .form-actions
+    = f.button :submit, class: "btn-primary btn-lg btn-block"
