@@ -64,6 +64,8 @@ namespace :deploy do
     end
 
     before "deploy", "deploy:check_revision"
+
+    after "deploy", "deploy:migrate"
 end
 
 #role :web, "sharparam.com"                   # Your HTTP server, Apache/etc
