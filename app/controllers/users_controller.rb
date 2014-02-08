@@ -10,7 +10,7 @@ class UsersController < ApplicationController
           redirect_to root_path
         end
 
-        #@users = User.all
+        @users = @users.order('id').page(params[:page]).per(20)
     end
 
     # GET /users/1

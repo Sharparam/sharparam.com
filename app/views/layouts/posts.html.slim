@@ -18,8 +18,16 @@
                             = link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg btn-block'
             .sidebar-module.sidebar-module-inset
                 h4 About
-                p Lorem ipsum, the quick brown fox jumps over the lazy dog.
-            .sidebar-module
+                p
+                 | I'm not entirely sure what kind of content that will be posted on this blog...
+                 | There won't be any frequent updates, posts will probably be fairly rare.
+                p
+                 | But anyway, I will most likely be posting about things related to my programming
+                 | projects and other such things. Maybe something personal once in a while, but
+                 | don't hold your breath.
+                p For other sources to find my writings, please check the page footer!
+            / TODO: Implement blog archive(?)
+            /.sidebar-module
                 h4 Archive
                 ol.list-unstyled
                     li This

@@ -36,6 +36,9 @@ gem 'country_select'
 gem 'pygments.rb'
 gem 'redcarpet'
 
+# Pagination
+gem 'kaminari'
+
 # Authentication gems
 gem 'devise'
 #gem 'omniauth'

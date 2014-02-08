@@ -68,6 +68,26 @@ namespace :deploy do
     after "deploy", "deploy:migrate"
 end
 
+namespace :rails do
+    desc "Remote console"
+    task :console, roles: :app do
+        run_interactively "bundle exec rails console #{rails_env}"
+    end
+
+    desc "Remote dbconsole"
+    task :dbconsole, roles: :app do
+        run_interactively "bundle exec rails dbconsole #{rails_env}"
+    end
+end
+
+def run_interactively(command)
+    server ||= find_servers_for_task(current_task).first
+    #app_env = fetch("default environment", {}).map{|k,v| "#{k}=\"#{v}\""}.join(' ')
+    command = %Q(ssh #{user}@#{server} -p #{port} -t 'source ~/.profile && cd #{deploy_to}/current && #{command}')
+    puts command
+    exec command
+end
+
 #role :web, "sharparam.com"                   # Your HTTP server, Apache/etc
 #role :app, "sharparam.com"                   # This may be the same as your `Web` server
 #role :db,  "sharparam.com", :primary => true # This is where Rails migrations will run
