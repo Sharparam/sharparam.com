@@ -3,7 +3,7 @@
 
 .blog-post
     h2.blog-post-title = @post.title
-    - if @updated
+    - if @post.updated
         p.blog-post-meta
          span> title="#{@post.iso_created}" = @post.pretty_created
          | by
