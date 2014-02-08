@@ -56,12 +56,20 @@
  */
 
 .blog-post {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+
+    // Make images in blog post responsive
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
+
 .blog-post-title {
   margin-bottom: 5px;
   font-size: 40px;
 }
+
 .blog-post-meta {
   margin-bottom: 20px;
   color: #999;

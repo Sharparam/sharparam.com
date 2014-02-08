@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :load_shared
   before_action :load_post, only: :create
+  before_action :load_archive, only: :archive
   load_and_authorize_resource
   #before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -64,6 +66,12 @@ class PostsController < ApplicationController
     end
   end
 
+  # GET /posts/archive/2014/02
+  # GET /posts/archive/2014/02.json
+  def archive
+    @date = Date.parse("#{params[:year]}-#{params[:month]}-01").strftime('%B, %Y')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -75,7 +83,17 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :content)
     end
 
+    def load_shared
+      posts = Post.recent
+      @posts_by_year = posts.group_by { |post| post.created_at.beginning_of_year }
+      @posts_by_month = posts.group_by { |post| post.created_at.beginning_of_month }
+    end
+
     def load_post
       @post = current_user.posts.build(post_params)
+    end
+
+    def load_archive
+      @posts = Post.from_archive(params[:year], params[:month])
     end
 end

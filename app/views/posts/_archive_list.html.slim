@@ -1,0 +1,11 @@
+- if @posts_by_year and @posts_by_month
+    .sidebar-module
+        h4 Archive
+        ul
+            - @posts_by_year.each do |year, posts|
+                li #{year.year} (#{posts.count})
+                ul
+                    - posts.group_by { |p| p.created_at.beginning_of_month }.each do |month, posts|
+                        li
+                         => link_to "#{month.strftime('%B')}", posts_archive_posts_path(year.year, month.strftime('%m'))
+                         | (#{posts.count})

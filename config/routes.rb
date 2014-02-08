@@ -4,7 +4,14 @@ SharparamCom::Application.routes.draw do
   root 'pages#index'
 
   resources :users
-  resources :blog, controller: 'posts', as: :posts
+
+  resources :blog, controller: 'posts', as: :posts do
+    collection do
+      get 'archive/:year/:month' => 'posts#archive',
+        constraints: { year: /\d{4}/, month: /\d{2}/ },
+        as: :posts_archive
+    end
+  end
 
   get 'projects' => 'pages#projects'
   get 'about' => 'pages#about'
