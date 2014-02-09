@@ -46,3 +46,6 @@ config/github.yml
 
 # Ignore devise config
 config/devise.yml
+
+# Ignore sitemaps (generated on deploy by sitemap_generator)
+public/sitemap*.xml*

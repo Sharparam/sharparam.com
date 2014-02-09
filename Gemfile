@@ -45,6 +45,8 @@ gem 'devise'
 gem 'omniauth-github'
 gem 'cancan'
 
+gem 'sitemap_generator'
+
 group :development do
     # Use sqlite3 as the database for Active Record in development
     gem 'sqlite3'

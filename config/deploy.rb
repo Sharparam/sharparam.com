@@ -66,6 +66,12 @@ namespace :deploy do
     before "deploy", "deploy:check_revision"
 
     after "deploy", "deploy:migrate"
+
+    task :refresh_sitemaps, roles: :app do
+        run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle exec rake sitemap:refresh"
+    end
+
+    after "deploy", "deploy:refresh_sitemaps"
 end
 
 namespace :rails do
