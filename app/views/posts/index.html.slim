@@ -1,0 +1,9 @@
+- @posts.each do |post|
+    .blog-post
+        h2.blog-post-title = link_to post.title, post
+        p.blog-post-meta
+         span> title="#{post.iso_created}" = post.pretty_created
+         | by
+         =< post.user
+        = markdown(truncate(post.content, length: 500, separator: ' ', omission: "...\n\n[*Continue reading*](#{post_path(post)})", escape: false))
+= paginate @posts

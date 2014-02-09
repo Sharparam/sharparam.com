@@ -40,6 +40,8 @@ namespace :deploy do
     task :symlink_configs, roles: :app do
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
         run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
+        run "ln -nfs #{shared_path}/config/github.yml #{release_path}/config/github.yml"
+        run "ln -nfs #{shared_path}/config/devise.yml #{release_path}/config/devise.yml"
         #run "ln -nfs #{shared_path}/.env #{release_path}/.env"
         #run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
     end
@@ -62,6 +64,28 @@ namespace :deploy do
     end
 
     before "deploy", "deploy:check_revision"
+
+    after "deploy", "deploy:migrate"
+end
+
+namespace :rails do
+    desc "Remote console"
+    task :console, roles: :app do
+        run_interactively "bundle exec rails console #{rails_env}"
+    end
+
+    desc "Remote dbconsole"
+    task :dbconsole, roles: :app do
+        run_interactively "bundle exec rails dbconsole #{rails_env}"
+    end
+end
+
+def run_interactively(command)
+    server ||= find_servers_for_task(current_task).first
+    #app_env = fetch("default environment", {}).map{|k,v| "#{k}=\"#{v}\""}.join(' ')
+    command = %Q(ssh #{user}@#{server} -p #{port} -t 'source ~/.profile && cd #{deploy_to}/current && #{command}')
+    puts command
+    exec command
 end
 
 #role :web, "sharparam.com"                   # Your HTTP server, Apache/etc

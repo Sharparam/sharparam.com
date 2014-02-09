@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    description: "Personal website of Adam Hellberg, hobbyist programmer and web designer."
+    keywords: "adam, hellberg, sharparam, personal, programmer, web designer, sweden, swedish, kristinehamn"
+    views:
+        pagination:
+            first: "&laquo;"
+            previous: "&lsaquo;"
+            next: "&rsaquo;"
+            last: "&raquo;"
+            truncate: "&hellip;"

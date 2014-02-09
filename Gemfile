@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-#gem 'dotenv-rails'
-#gem 'figaro'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -10,8 +7,6 @@ gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 
 gem 'bootstrap-sass', '~> 3.1.0.1'
-
-#gem 'bootswatch-rails'
 
 gem 'font-awesome-sass'
 
@@ -33,12 +28,27 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'slim'
+gem 'slim-rails'
 
-# Use sqlite3 as the database for Active Record in development
-gem 'sqlite3'
+gem 'simple_form'
+gem 'country_select'
+
+gem 'pygments.rb'
+gem 'redcarpet'
+
+# Pagination
+gem 'kaminari'
+
+# Authentication gems
+gem 'devise'
+#gem 'omniauth'
+gem 'omniauth-github'
+gem 'cancan'
 
 group :development do
+    # Use sqlite3 as the database for Active Record in development
+    gem 'sqlite3'
+
     # Use Guard to monitor file changes
     gem 'guard'
     gem 'guard-bundler'
@@ -51,6 +61,8 @@ group :development do
 end
 
 group :production do
+    # Use PostgreSQL in production
+    gem 'pg'
     gem 'unicorn'
 end
 
