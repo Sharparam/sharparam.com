@@ -36,7 +36,15 @@
 /* Sidebar modules for boxing content */
 .sidebar-module {
     padding: 15px;
-    margin: 0 -15px 15px;
+    margin: 0 -15px 10px;
+
+    &:nth-last-child(2) {
+        padding-bottom: 0;
+    }
+
+    &:last-child {
+        padding-top: 0;
+    }
 }
 
 .sidebar-module-inset {
@@ -120,5 +128,16 @@ textarea#post_content {
 
     span.badge {
         margin-left: 10px;
+    }
+}
+
+$feed-color: #e06622;
+$feed-color-hover: darken($feed-color, 10%);
+
+a.feed-link i {
+    color: $feed-color;
+
+    &:hover {
+        color: $feed-color-hover;
     }
 }
