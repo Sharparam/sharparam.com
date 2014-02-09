@@ -5,15 +5,16 @@
             - @posts_by_year.each do |year, posts|
                 ruby:
                     year = year.year
-                li: a.archive-year class="#{'open' if year == Date.current.year}" href="#months-#{year}" data-toggle="collapse" data-target="#months-#{year}"
-                     i.glyphicon.glyphicon-folder-open
-                     i.glyphicon.glyphicon-folder-close
-                     | #{year}
-                     span.badge #{posts.count}
-                ul.collapse.list-unstyled.archive-months id="months-#{year}" class="#{'in' if year == Date.current.year}"
-                    - posts.group_by { |p| p.created_at.beginning_of_month }.each do |month, posts|
-                        li.archive-month
-                            a href=archive_posts_path(year, month.strftime('%m'))
-                             i.glyphicon.glyphicon-list
-                             | #{month.strftime('%B')}
-                             span.badge #{posts.count}
+                li
+                 a.archive-year class="#{'open' if year == Date.current.year}" href="#months-#{year}" data-toggle="collapse" data-target="#months-#{year}"
+                  i.glyphicon.glyphicon-folder-open
+                  i.glyphicon.glyphicon-folder-close
+                  | #{year}
+                  span.badge #{posts.count}
+                 ul.collapse.list-unstyled.archive-months id="months-#{year}" class="#{'in' if year == Date.current.year}"
+                     - posts.group_by { |p| p.created_at.beginning_of_month }.each do |month, posts|
+                         li.archive-month
+                             a href=archive_posts_path(year, month.strftime('%m'))
+                              i.glyphicon.glyphicon-list
+                              | #{month.strftime('%B')}
+                              span.badge #{posts.count}
