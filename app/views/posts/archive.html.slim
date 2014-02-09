@@ -4,9 +4,10 @@
     h1 Posts from #{@date}
     table.table.table-striped
         thead
-            th Title
-            th Date
-            th Author
+            tr
+                th Title
+                th Date
+                th Author
         tbody
             - @posts.each do |post|
                 tr
