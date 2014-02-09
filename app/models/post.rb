@@ -11,8 +11,12 @@ class Post < ActiveRecord::Base
     end
 
     def self.from_archive(year, month)
+        i_year = year.to_i
+        i_month = month.to_i
+        start_date = Date.new(i_year, i_month)
+        end_date = start_date.end_of_month
         recent.where("created_at >= :start_date AND created_at <= :end_date",
-            { start_date: "#{year}-#{month}-01", end_date: "#{year}-#{month}-31" })
+            { start_date: start_date.to_formatted_s(:db), end_date: end_date.to_formatted_s(:db) })
     end
 
     def updated?
