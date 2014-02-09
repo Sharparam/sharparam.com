@@ -47,6 +47,9 @@ gem 'cancan'
 
 gem 'sitemap_generator'
 
+# Scheduler
+gem 'whenever', require: false
+
 group :development do
     # Use sqlite3 as the database for Active Record in development
     gem 'sqlite3'
