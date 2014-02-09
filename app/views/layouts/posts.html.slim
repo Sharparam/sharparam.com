@@ -1,5 +1,8 @@
 - title 'Blog'
 
+- content_for :head, auto_discovery_link_tag(:atom, feed_posts_url(format: 'atom'))
+- content_for :head, auto_discovery_link_tag(:rss, feed_posts_url(format: 'rss'))
+
 - content_for :content do
     .blog-header
         h1.blog-title A blog of sorts...

@@ -9,7 +9,8 @@ SharparamCom::Application.routes.draw do
     collection do
       get 'archive/:year/:month' => 'posts#archive',
         constraints: { year: /\d{4}/, month: /\d{2}/ },
-        as: :posts_archive
+        as: :archive
+      get 'feed' => 'posts#feed', defaults: { format: 'atom' }
     end
   end
 

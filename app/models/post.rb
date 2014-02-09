@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
             { start_date: "#{year}-#{month}-01", end_date: "#{year}-#{month}-31" })
     end
 
-    def updated
+    def updated?
         updated_at - created_at > 0
     end
 

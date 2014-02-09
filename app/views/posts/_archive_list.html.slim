@@ -13,7 +13,7 @@
                 ul.collapse.list-unstyled.archive-months id="months-#{year}" class="#{'in' if year == Date.current.year}"
                     - posts.group_by { |p| p.created_at.beginning_of_month }.each do |month, posts|
                         li.archive-month
-                            a href=posts_archive_posts_path(year, month.strftime('%m'))
+                            a href=archive_posts_path(year, month.strftime('%m'))
                              i.glyphicon.glyphicon-list
                              | #{month.strftime('%B')}
                              span.badge #{posts.count}

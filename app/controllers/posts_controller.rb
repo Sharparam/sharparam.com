@@ -67,6 +67,18 @@ class PostsController < ApplicationController
     @date = Date.parse("#{params[:year]}-#{params[:month]}-01").strftime('%B, %Y')
   end
 
+  # GET /posts/feed.atom
+  def feed
+    @posts = Post.recent.first(30)
+    @updated = @posts.first.updated_at unless @posts.empty?
+
+    respond_to do |format|
+      format.atom { render layout: false }
+      # RSS redirects to ATOM
+      format.rss { redirect_to feed_posts_path(format: :atom), status: :moved_permanently }
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
