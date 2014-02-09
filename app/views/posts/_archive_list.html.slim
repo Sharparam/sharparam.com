@@ -5,7 +5,7 @@
             - @posts_by_year.each do |year, posts|
                 ruby:
                     year = year.year
-                li: a.archive-year class="#{year == Date.current.year ? 'open' : 'closed'}" href="#months-#{year}" data-toggle="collapse" data-target="#months-#{year}"
+                li: a.archive-year class="#{'open' if year == Date.current.year}" href="#months-#{year}" data-toggle="collapse" data-target="#months-#{year}"
                      i.glyphicon.glyphicon-folder-open
                      i.glyphicon.glyphicon-folder-close
                      | #{year}

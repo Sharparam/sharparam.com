@@ -91,6 +91,14 @@ textarea#post_content {
     i {
         margin-right: 10px;
         color: black;
+
+        &.glyphicon-folder-open {
+            display: none;
+        }
+
+        &.glyphicon-folder-close {
+            display: inline-block;
+        }
     }
 
     span.badge {
@@ -104,16 +112,6 @@ textarea#post_content {
 
         i.glyphicon-folder-close {
             display: none;
-        }
-    }
-
-    &.closed {
-        i.glyphicon-folder-open {
-            display: none;
-        }
-
-        i.glyphicon-folder-close {
-            display: inline-block;
         }
     }
 }
