@@ -11,7 +11,11 @@ SharparamCom::Application.routes.draw do
         constraints: { year: /\d{4}/, month: /\d{2}/ },
         as: :archive
       get 'feed' => 'posts#feed', defaults: { format: 'atom' }
-      resources :categories
+      resources :categories do
+        collection do
+          get 'search' => 'categories#search', as: :search, defaults: { format: 'json' }
+        end
+      end
     end
   end
 

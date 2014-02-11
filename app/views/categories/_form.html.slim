@@ -5,9 +5,18 @@
      | Preview
      span#category-preview.label< class="#{f.object and f.object.html_class}" #{f.object.name.blank? ? 'Category' : f.object.name}
 
+    p#label-links
+     | Suggestions:
+     =< link_to 'label-default', '#', class: 'label label-default'
+     =< link_to 'label-primary', '#', class: 'label label-primary'
+     =< link_to 'label-success', '#', class: 'label label-success'
+     =< link_to 'label-info', '#', class: 'label label-info'
+     =< link_to 'label-warning', '#', class: 'label label-warning'
+     =< link_to 'label-danger', '#', class: 'label label-danger'
+
     .form-inputs
-        = f.input :name, input_html: { id: 'category-name-input' }, placeholder: 'Name', label: false
-        = f.input :html_class, input_html: { id: 'category-class-input' }, placeholder: 'HTML Class', label: false
+        = f.input :name, placeholder: 'Name', label: false
+        = f.input :html_class, placeholder: 'HTML Class', label: false
 
     .form-actions
         = f.button :submit, class: 'btn-primary'

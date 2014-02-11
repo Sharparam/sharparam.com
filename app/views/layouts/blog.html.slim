@@ -21,7 +21,9 @@
                     - else
                         = link_to 'New Post', new_post_path, class: 'btn btn-primary btn-lg btn-block'
                     - if can? :manage, Category
-                        = link_to 'Manage Categories', categories_path, class: 'btn btn-default btn-lg btn-block'
+                        .btn-group
+                            = link_to 'Manage Categories', categories_path, class: 'btn btn-default btn-lg'
+                            = link_to 'New', new_category_path, class: 'btn btn-success btn-lg'
             .sidebar-module.sidebar-module-inset
                 h4 About
                 p

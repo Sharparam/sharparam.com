@@ -1,4 +1,12 @@
 /*
+ * Post form
+ */
+
+#s2id_post_category_ids {
+  //margin-bottom: 15px;
+}
+
+/*
  * Blog posts
  */
 
@@ -10,6 +18,10 @@
         max-width: 100%;
         height: auto;
     }
+
+    #category-list {
+      margin-bottom: 20px;
+    }
 }
 
 .blog-post-title {
@@ -18,7 +30,7 @@
 }
 
 .blog-post-meta {
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   color: #999;
 }
 

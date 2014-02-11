@@ -3,7 +3,12 @@
 
   .form-inputs
     = f.input :title, placeholder: "Title", label: false
-    = f.collection_select :category_ids, Category.all, :id, :name, {}, { multiple: true }
+    - unless @categories and @categories.empty?
+        = f.input :category_ids, input_html: { data: { placeholder: "Categories", saved: @post.categories.to_json, url: search_categories_path } }, label: false
+        /= f.collection_select :category_ids, @categories, :id, :name, {}, { data: { placeholder: "Categories", saved: @post.categories.to_json, url: search_categories_path }, multiple: true }
+    p
+     | Debug button:
+     button#debug-select2-button.btn.btn-default< type="button" DEBUG
     = f.input :content, placeholder: "Content", input_html: { rows: 20 }, label: false
 
   .form-actions

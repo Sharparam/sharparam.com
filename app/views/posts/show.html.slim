@@ -4,10 +4,6 @@
 .blog-post
     h2.blog-post-title
      = @post.title
-     - unless @post.categories.empty?
-         small
-            - @post.categories.each do |category|
-                =< link_to category.name, category, class: "label #{category.html_class}"
     - if @post.updated?
         p.blog-post-meta
          span> title="#{@post.iso_created}" = @post.pretty_created
@@ -20,5 +16,9 @@
          span> title="#{@post.iso_created}" = @post.pretty_created
          | by
          =< @post.user
+    - unless @post.categories.empty?
+        h4#category-list
+            - @post.categories.each do |category|
+                = render category
     = markdown(@post.content)
     a href=posts_path class="btn btn-default" &larr; Go back

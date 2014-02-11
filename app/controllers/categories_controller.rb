@@ -6,7 +6,10 @@ class CategoriesController < ApplicationController
     # GET /categories
     # GET /categories.json
     def index
-        @categories = @categories.where("name like ?", "%#{params[:q]}%")
+    end
+
+    def search
+        @categories = @categories.select("id, name, html_class").where("name like ?", "%#{params[:q]}%").order(:name)
     end
 
     # GET /categories/1
