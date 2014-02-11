@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
     end
 
     # PATCH/PUT /categories/1
-    # PACTH/PUT /categories/1.json
+    # PATCH/PUT /categories/1.json
     def update
         respond_to do |format|
             if @category.update(category_params)
