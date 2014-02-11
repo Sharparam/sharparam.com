@@ -2,23 +2,15 @@
 - description truncate(@post.content.squish, length: 140)
 
 .blog-post
-    h2.blog-post-title
-     = @post.title
-    - if @post.updated?
-        p.blog-post-meta
-         span> title="#{@post.iso_created}" = @post.pretty_created
-         | by
-         =< @post.user
-         | , updated
-         span< title="#{@post.iso_updated}" = @post.pretty_updated
-    - else
-        p.blog-post-meta
-         span> title="#{@post.iso_created}" = @post.pretty_created
-         | by
-         =< @post.user
-    - unless @post.categories.empty?
-        h4#category-list
-            - @post.categories.each do |category|
-                = render category
+    h2.blog-post-title = @post.title
+    p.blog-post-meta
+     span title="#{@post.iso_created}" = @post.pretty_created
+     - if @post.updated?
+        | , updated
+        span< title="#{@post.iso_updated}" = @post.pretty_updated
+     - unless @post.categories.empty?
+        | &nbsp;in
+        - @post.categories.each do |category|
+            =< render category
     = markdown(@post.content)
     a href=posts_path class="btn btn-default" &larr; Go back

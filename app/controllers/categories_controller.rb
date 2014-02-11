@@ -6,6 +6,10 @@ class CategoriesController < ApplicationController
     # GET /categories
     # GET /categories.json
     def index
+        if cannot? :manage, @categories
+            flash[:error] = 'You do not have permission to view the category list.'
+            redirect_to root_path
+        end
     end
 
     def search

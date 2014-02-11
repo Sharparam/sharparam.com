@@ -12,8 +12,6 @@
  *= require_self
  *= require select2
  *= require main
- *= require blog
- *= require posts
  *= require select2-bootstrap
  *= require pygments
  */

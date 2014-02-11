@@ -17,7 +17,7 @@ table.table.table-striped
                 td = category.id
                 td = category.name
                 td = category.html_class
-                td: span.label class="#{category.html_class}" #{category.name}
+                td = render category
                 td
                     .btn-group
                         - if can? :show, category

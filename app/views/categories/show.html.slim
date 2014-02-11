@@ -1,9 +1,19 @@
 h2
  | Posts in category
- span.label< class="#{@category.html_class}" = @category.name
+ =< render @category
  - if can? :edit, @category
     = link_to 'Edit Category', edit_category_path(@category), class: 'btn btn-default pull-right'
 
-- @category.posts.each do |post|
-    h4
-        = link_to post.title, post
+
+table.table.table-striped
+    thead
+        tr
+            th Title
+            th Date
+            th Author
+    tbody
+        - @category.posts.recent.each do |post|
+            tr
+                td = link_to post.title, post
+                td = post.iso_created
+                td = post.user  

@@ -15,8 +15,12 @@
 
     // Make images in blog post responsive
     img {
+        @extend .img-thumbnail;
         max-width: 100%;
         height: auto;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     #category-list {
