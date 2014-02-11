@@ -11,6 +11,7 @@
  *= require font-awesome
  *= require_self
  *= require main
+ *= require blog
  *= require posts
  *= require pygments
  */

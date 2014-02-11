@@ -3,8 +3,19 @@ class Post < ActiveRecord::Base
 
     belongs_to :user
 
+    has_many :categorizations
+    has_many :categories, through: :categorizations
+
     validates :title, presence: true, uniqueness: { case_sensitive: false }
     validates :content, presence: true
+
+    def self.by_year
+        recent.group_by { |post| post.created_at.beginning_of_year }
+    end
+
+    def self.by_month
+        recent.group_by { |post| post.created_at.beginning_of_month }
+    end
 
     def self.from_year(year)
         recent.where("created_at >= ? AND created_at <= ?", "#{year}-01-01", "#{year}-12-31")

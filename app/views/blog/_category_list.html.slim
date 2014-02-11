@@ -1,0 +1,5 @@
+- if @all_categories
+    #category-module.sidebar-module
+        h4 Categories
+        - @all_categories.each do |category|
+            => link_to category.name, category, class: "label #{category.html_class}"

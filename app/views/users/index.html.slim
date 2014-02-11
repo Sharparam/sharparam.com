@@ -20,9 +20,9 @@ table.table.table-striped
                 td
                     .btn-group
                         - if can? :show, user
-                            = link_to 'Show', user, class: 'btn btn-default'
+                            = link_to 'Show', user, class: 'btn btn-sm btn-default'
                         - if can? :edit, user
-                            = link_to 'Edit', edit_user_path(user), class: 'btn btn-default'
+                            = link_to 'Edit', edit_user_path(user), class: 'btn btn-sm btn-default'
                         - if can? :destroy, user
-                            = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+                            = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
 = paginate @users

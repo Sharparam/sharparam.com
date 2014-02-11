@@ -2,7 +2,12 @@
 - description truncate(@post.content.squish, length: 140)
 
 .blog-post
-    h2.blog-post-title = @post.title
+    h2.blog-post-title
+     = @post.title
+     - unless @post.categories.empty?
+         small
+            - @post.categories.each do |category|
+                =< link_to category.name, category, class: "label #{category.html_class}"
     - if @post.updated?
         p.blog-post-meta
          span> title="#{@post.iso_created}" = @post.pretty_created

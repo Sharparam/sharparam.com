@@ -8,10 +8,12 @@ class <%= controller_class_name %>Controller < ApplicationController
     load_and_authorize_resource
 
     # GET <%= route_url %>
+    # GET <%= route_url %>.json
     def index
     end
 
     # GET <%= route_url %>/1
+    # GET <%= route_url %>/1.json
     def show
     end
 
@@ -24,27 +26,41 @@ class <%= controller_class_name %>Controller < ApplicationController
     end
 
     # POST <%= route_url %>
+    # POST <%= route_url %>.json
     def create
-        if @<%= orm_instance.save %>
-            redirect_to @<%= singular_table_name %>, notice: <%= "'#{human_name} was successfully created.'" %>
-        else
-            render action: 'new'
+        respond_to do |format|
+            if @<%= orm_instance.save %>
+                format.html { redirect_to @<%= singular_table_name %>, notice: <%= "'#{human_name} was successfully created.'" %> }
+                format.json { render action: 'show', status: :created, location: @<%= singular_table_name %> }
+            else
+                format.html { render action: 'new' }
+                format.json { render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity }
+            end
         end
     end
 
     # PATCH/PUT <%= route_url %>/1
+    # PATCH/PUT <%= route_url %>/1.json
     def update
-        if @<%= orm_instance.update("#{singular_table_name}_params") %>
-            redirect_to @<%= singular_table_name %>, notice: <%= "'#{human_name} was successfully updated.'" %>
-        else
-            render action: 'edit'
+        respond_to do |format|
+            if @<%= orm_instance.update("#{singular_table_name}_params") %>
+                format.html { redirect_to @<%= singular_table_name %>, notice: <%= "'#{human_name} was successfully updated.'" %> }
+                format.json { head :no_content }
+            else
+                format.html { render action: 'edit' }
+                format.json { render json: @<%= singular_table_name %>.errors, status: :unprocessable_entity }
+            end
         end
     end
 
     # DELETE <%= route_url %>/1
+    # DELETE <%= route_url %>/1.json
     def destroy
         @<%= orm_instance.destroy %>
-        redirect_to <%= index_helper %>_url, notice: <%= "'#{human_name} was successfully destroyed.'" %>
+        respond_to do |format|
+            format.html { redirect_to <%= index_helper %>_url, notice: <%= "'#{human_name} was successfully destroyed.'" %> }
+            format.json { head :no_content }
+        end
     end
 
     private

@@ -3,6 +3,7 @@
 
   .form-inputs
     = f.input :title, placeholder: "Title", label: false
+    = f.collection_select :category_ids, Category.all, :id, :name, {}, { multiple: true }
     = f.input :content, placeholder: "Content", input_html: { rows: 20 }, label: false
 
   .form-actions

@@ -1,0 +1,113 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+ * Blog name and description
+ */
+
+.blog-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.blog-title {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.blog-description {
+    font-size: 20px;
+    color: #999;
+}
+
+
+/*
+ * Main column and sidebar layout
+ */
+
+.blog-main {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+    padding: 15px;
+    margin: 0 -15px 10px;
+
+    &#feed-module {
+        padding-bottom: 0;
+    }
+
+    &#archive-module, &#category-module {
+        padding-top: 0;
+    }
+}
+
+.sidebar-module-inset {
+    padding: 15px;
+    background-color: rgba(245, 245, 245, 0.5);
+    border-radius: 4px;
+}
+
+.sidebar-module-inset {
+    p:last-child, ul:last-child, ol:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.archive-year {
+    i {
+        margin-right: 10px;
+        color: black;
+
+        &.glyphicon-folder-open {
+            display: none;
+        }
+
+        &.glyphicon-folder-close {
+            display: inline-block;
+        }
+    }
+
+    span.badge {
+        margin-left: 10px;
+    }
+
+    &.open {
+        i.glyphicon-folder-open {
+            display: inline-block;
+        }
+
+        i.glyphicon-folder-close {
+            display: none;
+        }
+    }
+}
+
+.archive-month {
+    margin-left: 20px;
+
+    i {
+        margin-right: 10px;
+        color: black;
+    }
+
+    span.badge {
+        margin-left: 10px;
+    }
+}
+
+$feed-color: #e06622;
+$feed-color-hover: darken($feed-color, 10%);
+
+a.feed-link i {
+    color: $feed-color;
+
+    &:hover {
+        color: $feed-color-hover;
+    }
+}

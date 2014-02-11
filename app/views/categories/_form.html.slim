@@ -1,0 +1,13 @@
+= simple_form_for @category do |f|
+    = f.error_notification
+
+    .h2
+     | Preview
+     span#category-preview.label< class="#{f.object and f.object.html_class}" #{f.object.name.blank? ? 'Category' : f.object.name}
+
+    .form-inputs
+        = f.input :name, input_html: { id: 'category-name-input' }, placeholder: 'Name', label: false
+        = f.input :html_class, input_html: { id: 'category-class-input' }, placeholder: 'HTML Class', label: false
+
+    .form-actions
+        = f.button :submit, class: 'btn-primary'

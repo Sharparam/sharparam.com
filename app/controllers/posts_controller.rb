@@ -82,13 +82,13 @@ class PostsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, category_ids: [])
     end
 
     def load_shared
-      posts = Post.recent
-      @posts_by_year = posts.group_by { |post| post.created_at.beginning_of_year }
-      @posts_by_month = posts.group_by { |post| post.created_at.beginning_of_month }
+      @posts_by_year = Post.by_year
+      @posts_by_month = Post.by_month
+      @all_categories = Category.all
     end
 
     def load_post

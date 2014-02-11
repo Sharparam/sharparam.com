@@ -37,6 +37,7 @@ class Ability
         can :read, User, id: user.id
         can [:read, :archive, :feed], Post
         can [:update, :destroy], Post, user_id: user.id
+        can :read, Category
     end
   end
 end

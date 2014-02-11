@@ -1,0 +1,45 @@
+- title 'Blog'
+
+- content_for :head, auto_discovery_link_tag(:atom, feed_posts_url(format: 'atom'))
+- content_for :head, auto_discovery_link_tag(:rss, feed_posts_url(format: 'rss'))
+
+- content_for :content do
+    .blog-header
+        h1.blog-title A blog of sorts...
+        p.lead.blog-description A generic bootstrap blog following the thoughts of me!
+    .row
+        .col-sm-8.blog-main
+            == yield
+        .col-sm-3.col-sm-offset-1
+            - if can? :create, Post
+                .sidebar-module
+                    - if @post and @post.id?
+                        -if can? :edit, @post
+                            = link_to 'Edit Post', edit_post_path(@post), class: 'btn btn-primary btn-lg btn-block'
+                        -if can? :destroy, @post
+                            = link_to 'Delete Post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg btn-block'
+                    - else
+                        = link_to 'New Post', new_post_path, class: 'btn btn-primary btn-lg btn-block'
+                    - if can? :manage, Category
+                        = link_to 'Manage Categories', categories_path, class: 'btn btn-default btn-lg btn-block'
+            .sidebar-module.sidebar-module-inset
+                h4 About
+                p
+                 | I'm not entirely sure what kind of content that will be posted on this blog...
+                 | There won't be any frequent updates, posts will probably be fairly rare.
+                p
+                 | But anyway, I will most likely be posting about things related to my programming
+                 | projects and other such things. Maybe something personal once in a while, but
+                 | don't hold your breath.
+                p For other sources to find my writings, please check the page footer!
+            #feed-module.sidebar-module
+                h4 Atom Feed
+                p Subscribe to the Atom feed for this blog to stay up to date with new posts!
+                p.small Who am I kidding, I never post anything...
+                p.text-center
+                    = link_to feed_posts_url(format: 'atom'), class: 'feed-link' do
+                        i.fa.fa-rss-square.fa-4x
+            = render "blog/archive_list"
+            = render "blog/category_list"
+
+= render template: "layouts/application"
