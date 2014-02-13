@@ -38,6 +38,7 @@ class Ability
         can [:read, :archive, :feed], Post
         can [:update, :destroy], Post, user_id: user.id
         can [:read, :search], Category
+        can :create, ContactMessage
     end
   end
 end

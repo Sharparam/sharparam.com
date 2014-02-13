@@ -1,0 +1,12 @@
+= simple_form_for @contact_message do |f|
+    = f.error_notification
+
+    .form-inputs
+        = f.input :name, placeholder: 'Name', label: false
+        = f.input :email, placeholder: 'Email', label: false
+        = f.input :message, as: :text, placeholder: 'Message', label: false, input_html: { rows: 5 }
+        = f.input :nickname, as: :hidden, label: false
+
+    .form-actions
+        = f.button :submit, 'Send Message', class: 'btn btn-primary btn-block'
+end 

@@ -7,14 +7,8 @@
 .row
     .col-md-4
         h2 Contacting by email
-        p
-         | Depending on the type of message you intend to send, please use one of the following email addresses,
-           in order of how serious or professional your inquiry is.
-        ol
-            li = link_to 'adam.hellberg@tridevs.com', 'mailto:adam.hellberg@tridevs.com'
-            li = link_to 'adam.hellberg@sharparam.com', 'mailto:adam.hellberg@sharparam.com'
-            li = link_to 'sharparam@tridevs.com', 'mailto:sharparam@tridevs.com'
-            li = link_to 'sharparam@sharparam.com', 'mailto:sharparam@sharparam.com'
+        p You can use this form, or send a message directly to the email listed in the footer.
+        = render 'contact_messages/form'
     .col-md-4
         h2 Contacting by phone
         p You may contact me on my cellphone:
@@ -33,3 +27,10 @@
          | 681 41 Kristinehamn
          br
          | SWEDEN
+    .col-md-4
+        h2 Other ways to contact me
+        p You can find links to several of my profiles down in the footer.
+        p
+         | The only profile not mentioned is my
+         =< link_to 'reddit profile', 'http://reddit.com/user/sharparam'
+         | , simply because I couldn't find a fitting icon for it.

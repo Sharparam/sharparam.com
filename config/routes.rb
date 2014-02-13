@@ -23,6 +23,8 @@ SharparamCom::Application.routes.draw do
   get 'contact' => 'pages#contact'
   get 'about' => 'pages#about'
 
+  resources :contact_messages, only: :create
+
   # Example resource route with options:
   #   resources :products do
   #     member do
