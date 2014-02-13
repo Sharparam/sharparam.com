@@ -13,9 +13,6 @@ SharparamCom::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -26,6 +23,19 @@ SharparamCom::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: SMTP_CONFIG['server'],
+    port: SMTP_CONFIG['port'],
+    domain: SMTP_CONFIG['domain'],
+    user_name: SMTP_CONFIG['username'],
+    password: SMTP_CONFIG['password'],
+    authentication: SMTP_CONFIG['authentication'],
+    enable_starttls_auto: SMTP_CONFIG['autotls']
+  }
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 

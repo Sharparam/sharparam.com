@@ -52,6 +52,8 @@ gem 'whenever', require: false
 
 gem 'select2-rails'
 
+gem 'mail_form'
+
 group :development do
     # Use sqlite3 as the database for Active Record in development
     gem 'sqlite3'

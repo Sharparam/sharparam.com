@@ -49,3 +49,6 @@ config/devise.yml
 
 # Ignore sitemaps (generated on deploy by sitemap_generator)
 public/sitemap*.xml*
+
+# SMTP config
+config/smtp.yml

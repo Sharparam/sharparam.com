@@ -20,6 +20,7 @@ SharparamCom::Application.routes.draw do
   end
 
   get 'projects' => 'pages#projects'
+  get 'contact' => 'pages#contact'
   get 'about' => 'pages#about'
 
   # Example resource route with options:
