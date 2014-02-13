@@ -45,8 +45,7 @@ namespace :deploy do
         run "ln -nfs #{shared_path}/config/secrets.yml #{release_path}/config/secrets.yml"
         run "ln -nfs #{shared_path}/config/github.yml #{release_path}/config/github.yml"
         run "ln -nfs #{shared_path}/config/devise.yml #{release_path}/config/devise.yml"
-        #run "ln -nfs #{shared_path}/.env #{release_path}/.env"
-        #run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
+        run "ln -nfs #{shared_path}/config/smtp.yml #{release_path}/config/smtp.yml"
     end
 
     after "deploy:finalize_update", "deploy:symlink_configs"
