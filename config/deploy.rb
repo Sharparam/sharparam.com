@@ -88,6 +88,18 @@ namespace :rails do
     end
 end
 
+namespace :nginx do
+    desc "Reload nginx configs"
+    task :reload do
+        sudo "service nginx reload"
+    end
+
+    desc "Restart nginx server"
+    task :restart do
+        sudo "service nginx restart"
+    end
+end
+
 def run_interactively(command)
     server ||= find_servers_for_task(current_task).first
     #app_env = fetch("default environment", {}).map{|k,v| "#{k}=\"#{v}\""}.join(' ')
