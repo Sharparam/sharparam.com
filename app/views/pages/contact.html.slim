@@ -10,11 +10,19 @@
         p You can use this form, or send a message directly to the email listed in the footer.
         = render 'contact_messages/form'
     .col-md-4
+        h2 Secure email
+        p
+         | Want to send something encrypted? You can find my public key on
+         =< link_to 'keybase', 'https://keybase.io/sharparam'
+         | . Send encrypted emails to
+         =< link_to 'sharparam@sharparam.com', 'mailto:sharparam@sharparam.com'
+         | .
+    /.col-md-4
         h2 Contacting by phone
         p You may contact me on my cellphone:
         p = link_to '+46 (0) 73 057 90 65', 'tel:+46730579065'
         p Note that I will most likely not accept calls from strangers. Sorry 4chan.
-    .col-md-4
+    /.col-md-4
         h2
          | Contacting by letter
          small< Really?
