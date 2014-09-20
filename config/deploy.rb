@@ -5,7 +5,7 @@ set :whenever_command, "bundle exec whenever"
 set :whenever_roles, [:app]
 require "whenever/capistrano"
 
-server "sharparam.com", :web, :app, :db, primary: true
+server "do.sharparam.com", :web, :app, :db, primary: true
 
 set :application, "sharparam.com"
 set :user, "rails"
