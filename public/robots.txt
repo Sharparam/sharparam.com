@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /users/
-
-Sitemap: http://sharparam.com/sitemap.xml.gz
-Host: sharparam.com

@@ -1,8 +1,0 @@
-development:
-    secret_key: "xxxxx"
-
-test:
-    secret_key: "xxxxx"
-
-production:
-    secret_key: "xxxxx"
