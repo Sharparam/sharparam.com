@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use redcarpet for markdown
+gem 'redcarpet', '~> 3.4'
+
 # Use slim language
 gem 'slim-rails', '~> 3.2'
 
