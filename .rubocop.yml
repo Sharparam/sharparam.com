@@ -3,3 +3,24 @@ require:
 
 Metrics/LineLength:
   Max: 120
+
+Style/AsciiComments:
+  Enabled: false
+
+# This is disabled until https://github.com/rubocop-hq/rubocop/issues/7189
+# is fixed.
+# Style/Copyright:
+#   Enabled: true
+#   Notice: |-
+#     ^# Copyright (?:©|\(c\)) (?:(?:\d{4}|\d{4}-\d{4})(?:, (?=\d))?)+ by Adam Hellberg\.
+#     #
+#     # This Source Code Form is subject to the terms of the Mozilla Public
+#     # License, v\. 2\.0\. If a copy of the MPL was not distributed with this
+#     # file, You can obtain one at http:\/\/mozilla\.org\/MPL\/2\.0\/\.
+
+#   AutocorrectNotice: |-
+#     # Copyright © 2019 by Adam Hellberg.
+#     #
+#     # This Source Code Form is subject to the terms of the Mozilla Public
+#     # License, v. 2.0. If a copy of the MPL was not distributed with this
+#     # file, You can obtain one at http://mozilla.org/MPL/2.0/.
