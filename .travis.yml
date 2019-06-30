@@ -7,7 +7,7 @@ env:
   - "RAILS_ENV=test"
 
 before_install:
-  - gem install -v 2.0.2 bundler --no-document --no-rdoc --no-ri
+  - gem install -v 2.0.2 bundler --no-document
 
 before_script:
   - RAILS_ENV=test rake db:create db:migrate
