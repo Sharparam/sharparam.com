@@ -22,7 +22,8 @@ install:
 script:
   - yarn lint
   - yarn test
-  - bundle exec rake test
+  - RAILS_ENV=test rake db:create db:migrate
+  - bundle exec rake
 
 before_script:
   - RAILS_ENV=test rake db:create db:migrate
