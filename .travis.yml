@@ -20,8 +20,6 @@ install:
   - yarn
 
 script:
-  - yarn lint
-  - yarn test
   - RAILS_ENV=test rake db:create db:migrate
   - bundle exec rake
 
