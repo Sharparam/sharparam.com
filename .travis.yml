@@ -8,6 +8,9 @@ cache:
 env:
   - "RAILS_ENV=test"
 
+services:
+  - postgresql
+
 before_install:
   - gem install rubygems-update --no-document && update_rubygems
   - gem install -v 2.0.2 bundler --no-document
@@ -20,4 +23,4 @@ install:
   - yarn
 
 before_script:
-  - RAILS_ENV=test rake db:create db:migrate
+  - RAILS_ENV=test rake db:setup db:migrate

@@ -63,6 +63,10 @@ GEM
       rake (< 13.0)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    dotenv (2.7.4)
+    dotenv-rails (2.7.4)
+      dotenv (= 2.7.4)
+      railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     ffi (1.11.1)
     globalid (0.4.2)
@@ -95,6 +99,7 @@ GEM
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
+    pg (1.1.4)
     public_suffix (3.1.1)
     puma (3.12.1)
     rack (2.0.7)
@@ -172,7 +177,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.1)
     sysexits (1.2.0)
     temple (0.8.1)
     thor (0.20.3)
@@ -207,8 +211,10 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
+  dotenv-rails (~> 2.7)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  pg (~> 1.1)
   puma (~> 3.11)
   rails (~> 5.2.3)
   redcarpet (~> 3.4)
@@ -219,7 +225,6 @@ DEPENDENCIES
   slim_lint (~> 0.17)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
