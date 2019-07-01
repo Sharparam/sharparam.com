@@ -21,6 +21,3 @@ install:
 
 before_script:
   - RAILS_ENV=test rake db:create db:migrate
-
-script:
-  - bundle exec rake
