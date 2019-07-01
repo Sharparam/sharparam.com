@@ -1,13 +1,28 @@
 language: ruby
 cache:
-  - bundler
-  - yarn
+  bundler: true
+  yarn: true
+  directories:
+    - node_modules
 
 env:
   - "RAILS_ENV=test"
 
 before_install:
+  - gem install rubygems-update && update_rubygems
   - gem install -v 2.0.2 bundler --no-document
+
+install:
+  - bundle install --jobs=3 --retry=3 --deployment --path=${BUNDLE_PATH:-vendor/bundle}
+  - nvm install 10
+  - node -v
+  - npm i -g yarn
+  - yarn
+
+script:
+  - yarn lint
+  - yarn test
+  - bundle exec rake test
 
 before_script:
   - RAILS_ENV=test rake db:create db:migrate
