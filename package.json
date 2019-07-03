@@ -6,6 +6,7 @@
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "^4.0.7",
+    "normalize.css": "^8.0.1",
     "rails-erb-loader": "^5.5.2",
     "ts-loader": "^6.0.4",
     "turbolinks": "^5.2.0",
