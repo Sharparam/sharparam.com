@@ -11,9 +11,9 @@ Rails.application.configure do
     domain: ENV.fetch('SMTP_DOMAIN') { Rails.application.credentials.dig(:smtp, :domain) },
     user_name: ENV.fetch('SMTP_USERNAME') { Rails.application.credentials.dig(:smtp, :username) },
     password: ENV.fetch('SMTP_PASSWORD') { Rails.application.credentials.dig(:smtp, :password) },
-    authentication: ENV.fetch('SMTP_AUTHENTICATION') {
+    authentication: ENV.fetch('SMTP_AUTHENTICATION') do
       Rails.application.credentials.dig(:smtp, :authentication) || :plain
-    },
+    end,
     enable_starttls_auto: Rails.application.credentials.dig(:smtp, :starttls_auto) || true
   }
 end
