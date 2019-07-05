@@ -29,7 +29,7 @@ Things you may want to cover:
 
 * ...
 
-# License
+## License
 
 Copyright © 2019 by [Adam Hellberg][sharparam].
 
@@ -39,7 +39,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 See the file [LICENSE][] for more details.
 
-## Content license
+### Content license
 
 [![CC-BY-NC-ND][cc-by-nc-nd-badge]][cc-by-nc-nd]
 
