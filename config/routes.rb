@@ -5,10 +5,10 @@
 Rails.application.routes.draw do
   get 'contact', to: 'contact#index'
   resource :contact_message,
-    only: :create,
-    as: 'contact',
-    path: 'contact',
-    controller: 'contact'
+           only: :create,
+           as: 'contact',
+           path: 'contact',
+           controller: 'contact'
 
   root 'home#index'
 end

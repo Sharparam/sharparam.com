@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Describes a contact message.
 class ContactMessage
   include ActiveModel::Model
 

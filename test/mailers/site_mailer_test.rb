@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class SiteMailerTest < ActionMailer::TestCase
   test 'contact_email' do
-    message = ContactMessage.new({
+    message = ContactMessage.new(
       name: 'Foo',
       email: 'foo@example.com',
       body: 'Test message'
-    })
+    )
 
     email = message.to_mail
 

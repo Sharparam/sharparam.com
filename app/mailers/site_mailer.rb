@@ -10,6 +10,7 @@ class SiteMailer < ApplicationMailer
     mail(
       to: %("Adam Hellberg" <sharparam@sharparam.com>),
       reply_to: %("#{@name}" <#{@email}>),
-      subject: subject)
+      subject: subject
+    )
   end
 end
