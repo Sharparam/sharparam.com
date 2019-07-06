@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'simple_form', '~> 4.1'
+
 # Use redcarpet for markdown
 gem 'redcarpet', '~> 3.4'
 

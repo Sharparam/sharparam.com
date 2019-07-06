@@ -2,6 +2,6 @@
 
 # Controls mailing.
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: %("Sharparam's site" <site@sharparam.com>)
   layout 'mailer'
 end

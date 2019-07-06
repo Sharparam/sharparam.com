@@ -1,0 +1,4 @@
+en:
+  site_mailer:
+    contact_email:
+      subject: "New message from %{name}"

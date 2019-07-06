@@ -1,12 +1,28 @@
 doctype html
 html
   head
-    title Sharparam
+    meta charset="utf-8"
+    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
+    meta name="viewport" content="width=device-width; initial-scale=1"
+    meta[name="description"
+      content="The personal website of Adam Hellberg, professional programmer with various skills and hobbies."]
+    meta name="keywords" content="adam, hellberg, sharparam, personal, programmer, c#, csharp, sweden, swedish, \
+      kristinehamn, karlstad, piano, photography, ruby, rails, lua"
+    meta name="author" content="Adam Hellberg <sharparam@sharparam.com>"
+
+    title
+     | Sharparam
+     = yield :title
+
     == csrf_meta_tags
     == csp_meta_tag
 
     == stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
+    == favicon_link_tag '/favicon.ico'
+
+    == yield(:head) if content_for?(:head)
+
   body
-    == yield
+    == content_for?(:content) ? yield(:content) : yield

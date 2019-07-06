@@ -162,6 +162,9 @@ GEM
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    simple_form (4.1.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     simplecov (0.17.0)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -235,6 +238,7 @@ DEPENDENCIES
   rubocop (~> 0.72.0)
   rubocop-rails (~> 2.1)
   selenium-webdriver
+  simple_form (~> 4.1)
   simplecov
   slim-rails (~> 3.2)
   slim_lint (~> 0.17)

@@ -1,0 +1,14 @@
+en:
+  site_mailer:
+    contact_email:
+      subject: "New message from %{name}"
+      heading: "%{name} has sent a message!"
+      summary:
+        html: "<em>%{name}</em> has sent you a message via the contact form on the site."
+        plain: "%{name} has sent you a message via the contact form on the site."
+      present_message: "The message is:"
+      reply_line:
+        html: >-
+          You can reply to them at:
+          <a href="mailto:%{email}">%{email}</a>
+        plain: "You can reply to them at: <%{email}>"

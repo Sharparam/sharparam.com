@@ -1,0 +1,11 @@
+h1 = t '.heading', name: @name
+p = t '.summary.html', name: @name
+blockquote
+  p
+    - @message.lines do |line|
+      = line
+      br
+  footer
+    ' &mdash;#{@name},
+    cite
+      a href="mailto:#{@email}" = @email

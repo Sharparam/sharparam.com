@@ -1,0 +1,9 @@
+<%= t '.heading', name: @name %>
+================================================================================
+
+<%= t '.summary.plain', name: @name %>
+<%= t '.present_message' %>
+
+<%= @message.lines.map { |l| "> #{l}" }.join %>
+
+<%= t '.reply_line.plain', email: @email %>

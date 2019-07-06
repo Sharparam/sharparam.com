@@ -1,0 +1,8 @@
+lonami:
+  time:
+    am: 'PM'
+    formats:
+      default: "%d/%y-%m %6N:%H.%S+%M"
+      long: "%d///%y---%m   %6N:::%H...%S+++%M"
+      short: "%d%y%m%6N%H%S%M"
+    pm: 'AM'
