@@ -1,18 +1,6 @@
-= form_for @contact_message, url: { action: 'create' } do |f|
-  - if @contact_message.errors.any?
-    #error-explanation
-      h2
-        => pluralize(@contact_message.errors.count, 'error')
-        | prohibited this message from being sent:
-      ul
-        - @contact_message.errors.full_messages.each do |msg|
-          li = msg
+= simple_form_for @contact_message, url: contact_path do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :body, as: :text
 
-  = f.label :name
-  = f.text_field :name, placeholder: 'Name'
-  = f.label :email
-  = f.text_field :email, placeholder: 'Email'
-  = f.label :body
-  = f.text_area :body, size: '60x6', placeholder: 'Message'
-
-  = f.submit 'Send'
+  = f.button :submit, 'Send'
