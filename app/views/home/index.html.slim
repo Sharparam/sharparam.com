@@ -1,10 +1,12 @@
-h1.title Home#index
-h3.subtitle Subtitle
+section.section
+  .container
+    h1.title Home#index
+    h3.subtitle Subtitle
 
-p Find me in app/views/home/index.html.slim
+    p Find me in app/views/home/index.html.slim
 
-p The time right now is #{l Time.now.utc}
-p Or in long format: #{l Time.now.utc, format: :long}
-p And short format: #{l Time.now.utc, format: :short}
+    p The time right now is #{l Time.now.utc}
+    p Or in long format: #{l Time.now.utc, format: :long}
+    p And short format: #{l Time.now.utc, format: :short}
 
-p = link_to 'Try contacting me', contact_path
+    p = link_to 'Try contacting me', contact_path
