@@ -30,6 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  home:
+    title: Home
+  contact: Contact
+  about: About
+  copyright: 'Copyright © 2019 by Adam Hellberg'
   time:
     am: ''
     formats:

@@ -1,12 +1,11 @@
-section.section
-  .container
-    h1.title Home#index
-    h3.subtitle Subtitle
-
-    p Find me in app/views/home/index.html.slim
-
-    p The time right now is #{l Time.now.utc}
-    p Or in long format: #{l Time.now.utc, format: :long}
-    p And short format: #{l Time.now.utc, format: :short}
-
-    p = link_to 'Try contacting me', contact_path
+.container.has-text-centered
+  h1.title = t '.hi'
+  h2.subtitle = t '.aka'
+  .is-size-5
+    p I am a professional programmer but also enjoy working on projects in my spare time.
+    p
+      ' Maybe you want to
+      => link_to 'contact me', contact_path
+      | or
+      =< link_to 'read more about this site', about_path
+      | ?

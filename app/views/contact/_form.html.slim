@@ -1,6 +1,5 @@
 = simple_form_for @contact_message, url: contact_path do |f|
-  = f.input :name
-  = f.input :email
-  = f.input :body, as: :text
-
-  = f.button :submit, 'Send'
+  = f.input :name, label: false, placeholder: 'Name'
+  = f.input :email, label: false, placeholder: 'Email'
+  = f.input :body, as: :text, label: false, placeholder: 'Message'
+  = f.button :submit, 'Send', class: 'is-primary is-fullwidth'

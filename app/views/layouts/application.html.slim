@@ -1,28 +1,30 @@
-doctype html
-html
-  head
-    meta charset="utf-8"
-    meta http-equiv="Content-Type" content="text/html; charset=utf-8"
-    meta name="viewport" content="width=device-width; initial-scale=1"
-    meta[name="description"
-      content="The personal website of Adam Hellberg, professional programmer with various skills and hobbies."]
-    meta name="keywords" content="adam, hellberg, sharparam, personal, programmer, c#, csharp, sweden, swedish, \
-      kristinehamn, karlstad, piano, photography, ruby, rails, lua"
-    meta name="author" content="Adam Hellberg <sharparam@sharparam.com>"
+- body_classes 'has-sticky-footer'
+- content_for :base_content
+  header
+    nav.navbar.is-success role="navigation" aria-label="main navigation"
+      .container
+        .navbar-brand
+          = link_to '#', root_path, class: 'navbar-item'
+          a.navbar-burger.burger role="button" aria-label="menu" aria-expanded=false data-target="navbar"
+            span aria-hidden=true
+            span aria-hidden=true
+            span aria-hidden=true
+        #navbar.navbar-menu
+          .navbar-start
+            = link_to t('home.title'), root_path, class: 'navbar-item'
+            = link_to t(:contact), contact_path, class: 'navbar-item'
+            = link_to t(:about), about_path, class: 'navbar-item'
+          .navbar-end
+            = link_to t(:login), '#', class: 'navbar-item'
+  main
+    .container
+      section.section
+        == content_for?(:content) ? yield(:content) : yield
+  footer.footer
+    .content
+      p
+        = t :copyright
+        | .
+        =< link_to 'This site is open source!', 'https://github.com/Sharparam/sharparam.com'
 
-    title
-     | Sharparam
-     = yield :title
-
-    == csrf_meta_tags
-    == csp_meta_tag
-
-    == stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-
-    == favicon_link_tag '/favicon.ico'
-
-    == yield(:head) if content_for?(:head)
-
-  body
-    == content_for?(:content) ? yield(:content) : yield
+== render 'layouts/base'

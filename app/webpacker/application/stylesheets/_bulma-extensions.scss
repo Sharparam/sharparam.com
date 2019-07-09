@@ -21,3 +21,7 @@ h5 {
 h6 {
   @extend .is-6;
 }
+
+div.field > div.control > label.radio > input[type="radio"] {
+  margin-right: 0.25rem;
+}

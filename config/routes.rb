@@ -10,5 +10,7 @@ Rails.application.routes.draw do
            path: 'contact',
            controller: 'contact'
 
+  get 'about', to: 'home#about'
+
   root 'home#index'
 end

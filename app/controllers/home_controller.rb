@@ -2,5 +2,9 @@
 
 # Controller for home pages and actions.
 class HomeController < ApplicationController
-  def index; end
+  def index
+    render layout: 'landing'
+  end
+
+  def about; end
 end

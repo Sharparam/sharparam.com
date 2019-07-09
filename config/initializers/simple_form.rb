@@ -1,6 +1,65 @@
 # frozen_string_literal: true
 
-#
+# Customized string input class.
+class StringInput < SimpleForm::Inputs::StringInput
+  def input_html_classes
+    super.push 'input'
+  end
+end
+
+# Customized text input class.
+class TextInput < SimpleForm::Inputs::TextInput
+  def input_html_classes
+    super.push 'textarea'
+  end
+end
+
+# Customized password input class.
+class PasswordInput < SimpleForm::Inputs::PasswordInput
+  def input_html_classes
+    super.push 'input'
+  end
+end
+
+# Customized select input class.
+class CollectionSelectInput < SimpleForm::Inputs::CollectionSelectInput
+end
+
+# Customized grouped select input class.
+class GroupedCollectionSelectInput < SimpleForm::Inputs::GroupedCollectionSelectInput
+end
+
+# Customized radio buttons input class.
+class CollectionRadioButtonsInput < SimpleForm::Inputs::CollectionRadioButtonsInput
+end
+
+# Customized numeric input class.
+class NumericInput < SimpleForm::Inputs::NumericInput
+end
+
+# Customized range input class.
+class RangeInput < SimpleForm::Inputs::RangeInput
+end
+
+# Customized DateTime input class.
+class DateTimeInput < SimpleForm::Inputs::DateTimeInput
+end
+
+# Customized file input class.
+class FileInput < SimpleForm::Inputs::FileInput
+  def input(wrapper_options = nil)
+    base = super wrapper_options
+    file_label = template.content_tag :span, 'Choose a file…', class: 'file-label'
+    cta = template.content_tag :span, file_label, class: 'file-cta'
+    file_name = template.content_tag :span, nil, class: 'file-name'
+    base + cta + file_name
+  end
+
+  def input_html_classes
+    super.push 'file-input'
+  end
+end
+
 # Uncomment this and change the path if necessary to include your own
 # components.
 # See https://github.com/plataformatec/simple_form#custom-components to know
@@ -8,19 +67,14 @@
 # Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
 #
 # Use this setup block to configure all options available in SimpleForm.
+# rubocop:disable Metrics/BlockLength
 SimpleForm.setup do |config|
   # Wrappers are used by the form builder to generate a
   # complete input. You can remove any component from the
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers(
-    :default,
-    class: :input,
-    hint_class: :field_with_hint,
-    error_class: :field_with_errors,
-    valid_class: :field_without_errors
-  ) do |b|
+  config.wrappers :default, class: :field do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
@@ -58,16 +112,137 @@ SimpleForm.setup do |config|
     b.optional :readonly
 
     ## Inputs
-    # b.use :input, class: 'input', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :label_input
-    b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, wrap_with: { tag: :span, class: :error }
+    # b.use :label_input
+    b.use :label, class: 'label'
+    b.use(
+      :input,
+      error_class: 'is-danger',
+      valid_class: 'is-success',
+      wrap_with: { tag: :div, class: :control }
+    )
+    b.use :hint,  wrap_with: { tag: :p, class: 'help' }
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
 
     ## full_messages_for
     # If you want to display the full error message for the attribute, you can
     # use the component :full_error, like:
     #
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
+  end
+
+  config.wrappers :horizontal, class: 'field is-horizontal' do |b|
+    b.use :html5
+    b.use :placeholder
+
+    b.optional :maxlength
+    b.optional :minlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+
+    b.use :label, class: 'label', wrap_with: { tag: :div, class: 'field-label is-normal' }
+
+    b.wrapper tag: :div, class: 'field-body' do |body|
+      body.wrapper tag: :div, class: :field do |input|
+        input.use(
+          :input,
+          error_class: 'is-danger',
+          valid_class: 'is-success',
+          wrap_wuth: { tag: :div, class: :control }
+        )
+        input.use :hint, wrap_with: { tag: :p, class: :help }
+        input.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+      end
+    end
+  end
+
+  config.wrappers :file, class: :field do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.use :label, class: :label
+    b.wrapper tag: :div, class: 'file has-name is-fullwidth' do |file|
+      file.use(
+        :input,
+        error_class: 'is-danger',
+        valid_class: 'is-success',
+        wrap_with: { tag: :label, class: 'file-label' }
+      )
+    end
+    b.use :hint, wrap_with: { tag: :p, class: :help }
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+  end
+
+  config.wrappers :radio_buttons, class: :field, item_label_class: 'radio' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.use :label, class: 'label'
+    b.use(
+      :input,
+      error_class: 'is-danger',
+      valid_class: 'is-success',
+      wrap_with: { tag: :div, class: :control }
+    )
+    b.use :hint,  wrap_with: { tag: :p, class: 'help' }
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+  end
+
+  config.wrappers :horizontal_radio_buttons, class: 'field is-horizontal', item_label_class: 'radio' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.use :label, class: 'label', wrap_with: { tag: :div, class: 'field-label' }
+    b.wrapper tag: :div, class: 'field-body' do |body|
+      body.wrapper tag: :div, class: :field do |field|
+        field.use(
+          :input,
+          error_class: 'is-danger',
+          valid_class: 'is-success',
+          wrap_with: { tag: :div, class: :control }
+        )
+        field.use :hint,  wrap_with: { tag: :p, class: 'help' }
+        field.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+      end
+    end
+  end
+
+  config.wrappers :select, class: :field do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.use :label, class: 'label'
+    b.wrapper tag: :div, class: 'control' do |component|
+      component.use(
+        :input,
+        error_class: 'is-danger',
+        valid_class: 'is-success',
+        wrap_with: { tag: :div, class: :select }
+      )
+    end
+    b.use :hint,  wrap_with: { tag: :p, class: 'help' }
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+  end
+
+  config.wrappers :horizontal_select, class: 'field is-horizontal' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.use :label, class: 'label', wrap_with: { tag: :div, class: 'field-label is-normal' }
+    b.wrapper tag: :div, class: 'field-body' do |body|
+      body.wrapper tag: :div, class: 'field is-narrow' do |field|
+        field.wrapper tag: :div, class: 'control' do |control|
+          control.use(
+            :input,
+            error_class: 'is-danger',
+            valid_class: 'is-success',
+            wrap_with: { tag: :div, class: 'select is-fullwidth' }
+          )
+        end
+        field.use :hint,  wrap_with: { tag: :p, class: 'help' }
+        field.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+      end
+    end
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -80,7 +255,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'button'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.
@@ -107,7 +282,7 @@ SimpleForm.setup do |config|
 
   # You can wrap each item in a collection of radio/check boxes with a tag,
   # defaulting to :span.
-  # config.item_wrapper_tag = :span
+  config.item_wrapper_tag = nil
 
   # You can define a class to use in all item wrappers. Defaulting to none.
   # config.item_wrapper_class = nil
@@ -124,6 +299,7 @@ SimpleForm.setup do |config|
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
+  config.generate_additional_classes_for = []
 
   # Whether attributes are required by default (or not). Default is true.
   # config.required_by_default = true
@@ -146,6 +322,11 @@ SimpleForm.setup do |config|
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
   # config.wrapper_mappings = { string: :prepend }
+  config.wrapper_mappings = {
+    file: :file,
+    radio_buttons: :radio_buttons,
+    select: :select
+  }
 
   # Namespaces where SimpleForm should look for custom input classes that
   # override default inputs.
@@ -174,12 +355,13 @@ SimpleForm.setup do |config|
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.
-  # config.include_default_input_wrapper_class = true
+  config.include_default_input_wrapper_class = false
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
 
   # Defines validation classes to the input_field. By default it's nil.
-  # config.input_field_valid_class = 'is-valid'
-  # config.input_field_error_class = 'is-invalid'
+  config.input_field_valid_class = 'is-success'
+  config.input_field_error_class = 'is-danger'
 end
+# rubocop:enable Metrics/BlockLength

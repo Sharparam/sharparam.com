@@ -1,4 +1,9 @@
 lonami:
+  home:
+    title: Contact
+  contact: About
+  about: Home
+  copyright: Adam Hellberg © by Copyright 2019
   time:
     am: 'PM'
     formats:

@@ -1,7 +1,19 @@
 - title 'Contact'
 
-p: small = link_to '« Home', root_path
+h1.title Contact me
 
-h1 Contact me
-
-= render 'form'
+.columns
+  .column
+    h3.subtitle Send a message
+    = render 'form'
+  .column
+    h3.subtitle Secure mail
+    p
+      ' If you'd prefer to send me an encrypted email, you can do so!
+      | Simply visit my
+      =<> link_to 'keybase profile', 'https://keybase.io/Sharparam'
+      | to get my public key.
+    p
+      | Send encrypted emails to
+      =< link_to 'sharparam@sharparam.com', 'mailto:sharparam@sharparam.com'
+      | .
