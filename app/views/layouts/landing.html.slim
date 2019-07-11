@@ -1,23 +1,10 @@
 - content_for :base_content
   section.hero.is-success.is-fullheight.is-bold
-    .hero-head
-      nav.navbar
-        .container
-          .navbar-brand
-            = link_to '#', root_path, class: 'navbar-item has-text-centered is-size-4'
-            /= image_pack_tag 'media/application/images/logo_pan.png'
-            span.navbar-burger.burger data-target="landing-navbar-menu"
-              span
-              span
-              span
-          #landing-navbar-menu.navbar-menu
-            .navbar-end
-              = link_to t('home.title'), root_path, class: 'navbar-item is-active'
-              = link_to t(:contact), contact_path, class: 'navbar-item'
-              = link_to t(:about), about_path, class: 'navbar-item'
-    .hero-body
+    header.hero-head
+      = render 'navbar'
+    main.hero-body
       == content_for?(:content) ? yield(:content) : yield
-    .hero-foot
+    footer.hero-foot
       .content.has-text-centered
         p style="padding-bottom: 2.5em;" = t :copyright
 

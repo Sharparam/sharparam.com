@@ -1,21 +1,7 @@
 - body_classes 'has-sticky-footer'
 - content_for :base_content
   header
-    nav.navbar.is-success role="navigation" aria-label="main navigation"
-      .container
-        .navbar-brand
-          = link_to '#', root_path, class: 'navbar-item'
-          a.navbar-burger.burger role="button" aria-label="menu" aria-expanded=false data-target="navbar"
-            span aria-hidden=true
-            span aria-hidden=true
-            span aria-hidden=true
-        #navbar.navbar-menu
-          .navbar-start
-            = link_to t('home.title'), root_path, class: 'navbar-item'
-            = link_to t(:contact), contact_path, class: 'navbar-item'
-            = link_to t(:about), about_path, class: 'navbar-item'
-          .navbar-end
-            = link_to t(:login), '#', class: 'navbar-item'
+    = render 'navbar', class: 'is-success'
   main
     .container
       section.section

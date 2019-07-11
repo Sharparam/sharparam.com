@@ -9,3 +9,9 @@
       | or
       =< link_to 'read more about this site', about_path
       | ?
+  .level.socials-landing
+    - @socials.each do |social|
+      .level-item.social-item-landing
+        = link_to social[:link], class: 'social-link-landing' do
+          span.icon.is-large
+            i class="#{social[:class]} social-icon-landing" title="#{social[:title]}"

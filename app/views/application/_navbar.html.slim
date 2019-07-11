@@ -1,0 +1,16 @@
+nav.navbar class="#{local_assigns[:class] || ''}" role="navigation" aria-label="main navigation"
+  .container
+    .navbar-brand
+      = link_to '#', root_path, class: 'navbar-item has-text-centered is-size-4'
+      /= image_pack_tag 'media/application/images/logo_pan.png'
+      a.navbar-burger.burger role="button" aria-label="menu" aria-expanded=false data-target="navbar"
+        span aria-hidden=true
+        span aria-hidden=true
+        span aria-hidden=true
+    #navbar.navbar-menu
+      .navbar-start
+        = link_to t('home.title'), root_path, class: 'navbar-item'
+        = link_to t(:contact), contact_path, class: 'navbar-item'
+        = link_to t(:about), about_path, class: 'navbar-item'
+      .navbar-end
+        = link_to t(:login), '#', class: 'navbar-item'
