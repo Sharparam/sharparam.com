@@ -12,6 +12,7 @@ environment.plugins.append('PurgecssPlugin', new PurgecssPlugin({
   paths: glob.sync([
     path.join(__dirname, '../../app/controllers/**/*.rb'),
     path.join(__dirname, '../../app/helpers/**/*.rb'),
+    path.join(__dirname, '../../config/initializers/simple_form.rb'),
     path.join(__dirname, '../../app/webpacker/**/*.js'),
     path.join(__dirname, '../../app/views/**/*.slim')
   ])
