@@ -34,6 +34,7 @@ en:
     title: Home
   contact: Contact
   about: About
+  login: Login
   copyright: 'Copyright © 2019 by Adam Hellberg.'
   time:
     am: ''
