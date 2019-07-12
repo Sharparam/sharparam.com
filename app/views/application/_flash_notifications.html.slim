@@ -1,0 +1,7 @@
+- return if flash.empty?
+
+section.notifications
+  - flash.each do |key, value|
+    .notification class="is-#{key}"
+      button.delete
+      = value

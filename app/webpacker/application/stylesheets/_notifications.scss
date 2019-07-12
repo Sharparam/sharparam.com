@@ -1,0 +1,16 @@
+section.notifications {
+  margin: 0;
+  padding: 0;
+
+  .notification {
+    margin: 1rem 0 0;
+  }
+}
+
+.notification.is-notice {
+  @extend .is-info;
+}
+
+.notification.is-alert {
+  @extend .is-danger;
+}

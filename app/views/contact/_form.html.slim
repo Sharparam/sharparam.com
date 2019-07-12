@@ -1,4 +1,6 @@
 = simple_form_for @contact_message, url: contact_path do |f|
+  /= render 'error_messages', target: @contact_message
+  = f.error_messages action: t('activerecord.actions.sent')
   = f.input :name, label: false, placeholder: 'Name'
   = f.input :email, label: false, placeholder: 'Email'
   = f.input :body, as: :text, label: false, placeholder: 'Message'

@@ -4,6 +4,7 @@
     = render 'navbar', class: 'is-success'
   main
     .container
+      = render 'flash_notifications'
       section.section
         == content_for?(:content) ? yield(:content) : yield
   = render 'footer'
