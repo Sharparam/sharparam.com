@@ -6,11 +6,6 @@
     .container
       section.section
         == content_for?(:content) ? yield(:content) : yield
-  footer.footer
-    .content
-      p
-        = t :copyright
-        | .
-        =< link_to 'This site is open source!', 'https://github.com/Sharparam/sharparam.com'
+  = render 'footer'
 
 == render 'layouts/base'

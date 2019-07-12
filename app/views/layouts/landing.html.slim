@@ -4,8 +4,14 @@
       = render 'navbar'
     main.hero-body
       == content_for?(:content) ? yield(:content) : yield
-    footer.hero-foot
+    footer.hero-foot.landing-footer
       .content.has-text-centered
-        p style="padding-bottom: 2.5em;" = t :copyright
+        p = t :copyright
+        p.cc-line-landing
+          = link_to 'https://creativecommons.org/licenses/by-nc-nd/4.0/', title: 'CC-BY-NC-ND' do
+            span.icon.is-medium: i.fab.fa-creative-commons
+            span.icon.is-medium: i.fab.fa-creative-commons-by
+            span.icon.is-medium: i.fab.fa-creative-commons-nc
+            span.icon.is-medium: i.fab.fa-creative-commons-nd
 
 == render 'layouts/base'

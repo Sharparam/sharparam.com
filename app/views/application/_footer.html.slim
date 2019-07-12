@@ -1,0 +1,16 @@
+footer.footer
+  .content.has-text-centered
+    p
+      = t :copyright
+      =<> link_to 'This site is open source', 'https://github.com/Sharparam/sharparam.com'
+      | and licensed under the
+      =< link_to 'MPL 2.0 license', 'https://www.mozilla.org/en-US/MPL/2.0/'
+      | . The website content is licensed under a
+      =< link_to 'CC-BY-NC-ND license', 'https://creativecommons.org/licenses/by-nc-nd/4.0/'
+      | .
+    p
+      = link_to 'https://creativecommons.org/licenses/by-nc-nd/4.0/', title: 'CC-BY-NC-ND' do
+        span.icon.is-large: i.fab.fa-creative-commons.fa-2x
+        span.icon.is-large: i.fab.fa-creative-commons-by.fa-2x
+        span.icon.is-large: i.fab.fa-creative-commons-nc.fa-2x
+        span.icon.is-large: i.fab.fa-creative-commons-nd.fa-2x

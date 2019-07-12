@@ -11,3 +11,21 @@
     color: darken(white, 10%);
   }
 }
+
+.landing-footer {
+  p:last-child {
+    padding-bottom: 1em;
+  }
+}
+
+.cc-line-landing {
+  font-size: 1.5rem;
+
+  a {
+    color: white;
+
+    &:hover {
+      color: darken(white, 10%);
+    }
+  }
+}
