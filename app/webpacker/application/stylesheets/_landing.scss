@@ -1,3 +1,25 @@
+@each $name, $pair in $colors {
+  $color: nth($pair, 1);
+  $color-invert: nth($pair, 2);
+  .hero.is-#{$name} .hero-head .navbar {
+    .navbar-burger {
+      color: rgba($color-invert, 0.7);
+    }
+
+    .navbar-menu.is-active a {
+      color: $color-invert;
+
+      &:hover {
+        color: $color-invert;
+      }
+
+      &.is-active {
+        color: $color-invert;
+      }
+    }
+  }
+}
+
 .socials-landing {
   margin-top: 1em;
   font-size: 3rem;

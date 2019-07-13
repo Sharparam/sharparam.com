@@ -23,4 +23,4 @@ function hookFileInputs() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', hookFileInputs, false);
+document.addEventListener('turbolinks:load', hookFileInputs, false);
