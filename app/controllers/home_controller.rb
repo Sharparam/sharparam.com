@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'date'
+
 # Controller for home pages and actions.
 class HomeController < ApplicationController
   def index
@@ -15,6 +17,10 @@ class HomeController < ApplicationController
       { link: 'https://www.youtube.com/user/F16Gaming', title: 'YouTube', class: 'fab fa-youtube' },
       { link: 'mailto:adam.hellberg@sharparam.com', title: 'Email me!', class: 'fas fa-envelope' }
     ]
+    birthday = DateTime.new 1995, 4, 9
+    now = DateTime.now.utc
+    diff = now - birthday
+    @age = (diff / 60 / 60 / 24 / 365.25).floor
     render layout: 'landing'
   end
 

@@ -2,16 +2,16 @@
   section.hero.is-success.is-fullheight.is-bold
     header.hero-head
       = render 'navbar'
-    main.hero-body
-      == content_for?(:content) ? yield(:content) : yield
+    .hero-body
+      == yield(:hero) if content_for? :hero
     footer.hero-foot.landing-footer
       .content.has-text-centered
-        p = t :copyright
-        p.cc-line-landing
-          = link_to 'https://creativecommons.org/licenses/by-nc-nd/4.0/', title: 'CC-BY-NC-ND' do
-            span.icon.is-medium: i.fab.fa-creative-commons
-            span.icon.is-medium: i.fab.fa-creative-commons-by
-            span.icon.is-medium: i.fab.fa-creative-commons-nc
-            span.icon.is-medium: i.fab.fa-creative-commons-nd
+        p.animated.pulse.infinite
+          = link_to '#main', class: 'main-link' do
+            span.icon.is-large: i.fas.fa-chevron-down.fa-3x
+  main#main.container
+    = render 'flash_notifications'
+    == content_for?(:content) ? yield(:content) : yield
+  = render 'footer'
 
 == render 'layouts/base'
