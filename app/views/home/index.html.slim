@@ -11,12 +11,32 @@
         =< link_to 'read more about me', '#main'
         | ?
     .level.socials-landing
-      - @socials.each do |social|
-        .level-item.social-item-landing
-          = link_to social[:link], class: 'social-link-landing' do
-            span.icon.is-large
-              i class="#{social[:class]} social-icon-landing" title="#{social[:title]}"
-
+      .level-item.social-item-landing
+        = link_to 'https://github.com/Sharparam', title: 'GitHub', class: 'social-link-landing' do
+          span.icon.is-large
+            i.fab.fa-github-alt.social-icon-landing
+      .level-item.social-item-landing
+        = link_to('https://stackoverflow.com/users/1104531/sharparam',
+          title: 'Stack Overflow',
+          class: 'social-link-landing') do
+          span.icon.is-large
+            i.fab.fa-stack-overflow.social-icon-landing
+      .level-item.social-item-landing
+        = link_to 'https://twitter.com/Sharparam', title: 'Twitter', class: 'social-link-landing' do
+          span.icon.is-large
+            i.fab.fa-twitter.social-icon-landing
+      .level-item.social-item-landing
+        = link_to 'https://www.linkedin.com/in/sharparam', title: 'LinkedIn', class: 'social-link-landing' do
+          span.icon.is-large
+            i.fab.fa-linkedin-in.social-icon-landing
+      .level-item.social-item-landing
+        = link_to 'https://www.youtube.com/user/F16Gaming', title: 'YouTube', class: 'social-link-landing' do
+          span.icon.is-large
+            i.fab.fa-youtube.social-icon-landing
+      .level-item.social-item-landing
+        = link_to 'mailto:adam.hellberg@sharparam.com', title: 'Email me!', class: 'social-link-landing' do
+          span.icon.is-large
+            i.fas.fa-envelope.social-icon-landing
 section.section
   .columns
     .column.is-two-thirds
