@@ -1,17 +1,13 @@
-- content_for :base_content
+- content_for :header
   section.hero.is-success.is-fullheight.is-bold
     header.hero-head
       = render 'navbar'
     .hero-body
       == yield(:hero) if content_for? :hero
-    footer.hero-foot.landing-footer
+    .hero-foot.landing-footer
       .content.has-text-centered
         p.animated.pulse.infinite
           = link_to '#main', class: 'main-link' do
             span.icon.is-large: i.fas.fa-chevron-down.fa-3x
-  main#main.container
-    = render 'flash_notifications'
-    == content_for?(:content) ? yield(:content) : yield
-  = render 'footer'
 
-== render 'layouts/base'
+== render template: 'layouts/application'
