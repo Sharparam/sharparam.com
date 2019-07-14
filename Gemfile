@@ -29,6 +29,8 @@ gem 'redcarpet', '~> 3.4'
 # Use slim language
 gem 'slim-rails', '~> 3.2'
 
+gem 'active_link_to', '~> 1.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
