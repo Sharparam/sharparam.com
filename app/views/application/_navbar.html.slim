@@ -13,4 +13,10 @@ nav.navbar class="#{local_assigns[:class] || ''}" role="navigation" aria-label="
         = active_link_to t(:contact), contact_path, class: 'navbar-item'
         = active_link_to t(:about), about_path, class: 'navbar-item'
       .navbar-end
-        = link_to t(:login), '#', class: 'navbar-item'
+        - if user_signed_in?
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link = current_user.email
+            .navbar-dropdown
+              = link_to t(:logout), destroy_user_session_path, method: :delete, class: 'navbar-item'
+        - else
+          = link_to t(:login), new_user_session_path, class: 'navbar-item'

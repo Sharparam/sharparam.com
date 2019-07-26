@@ -17,8 +17,13 @@ gem 'webpacker'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+# gem 'resque', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+gem 'devise', '~> 4.6'
+gem 'omniauth', '~> 1.9'
+gem 'omniauth-github', '~> 1.3'
 
 # gem 'formtastic', '~> 3.1'
 gem 'simple_form', '~> 4.1'
