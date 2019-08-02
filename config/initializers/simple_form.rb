@@ -148,7 +148,7 @@ SimpleForm.setup do |config|
           :input,
           error_class: 'is-danger',
           valid_class: 'is-success',
-          wrap_wuth: { tag: :div, class: :control }
+          wrap_with: { tag: :div, class: :control }
         )
         input.use :hint, wrap_with: { tag: :p, class: :help }
         input.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
@@ -171,6 +171,38 @@ SimpleForm.setup do |config|
     end
     b.use :hint, wrap_with: { tag: :p, class: :help }
     b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+  end
+
+  config.wrappers :checkbox, class: :field, item_label_class: 'checkbox' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.wrapper tag: :div, class: 'control' do |control|
+      control.wrapper tag: :label, class: :checkbox do |label|
+        label.use :input
+        label.use :label_text
+      end
+    end
+    b.use :hint, wrap_with: { tag: :p, class: 'help' }
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+  end
+
+  config.wrappers :horizontal_checkbox, class: :field, item_label_class: 'checkbox' do |b|
+    b.use :html5
+    b.optional :readonly
+
+    b.wrapper tag: :div, class: 'field-body' do |body|
+      body.wrapper tag: :div, class: :field do |field|
+        field.wrapper tag: :div, class: :control do |control|
+          control.wrapper tag: :label, class: :checkbox do |label|
+            label.use :input
+            label.use :label_text
+          end
+        end
+        field.use :hint, wrap_with: { tag: :p, class: 'help' }
+        field.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+      end
+    end
   end
 
   config.wrappers :radio_buttons, class: :field, item_label_class: 'radio' do |b|
@@ -252,7 +284,7 @@ SimpleForm.setup do |config|
   # Defaults to :nested for bootstrap config.
   #   inline: input + label
   #   nested: label > input
-  config.boolean_style = :nested
+  config.boolean_style = :inline
 
   # Default class for buttons
   config.button_class = 'button'
@@ -323,6 +355,8 @@ SimpleForm.setup do |config|
   # type as key and the wrapper that will be used for all inputs with specified type.
   # config.wrapper_mappings = { string: :prepend }
   config.wrapper_mappings = {
+    boolean: :checkbox,
+    checkbox: :checkbox,
     file: :file,
     radio_buttons: :radio_buttons,
     select: :select

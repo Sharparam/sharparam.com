@@ -26,6 +26,7 @@ module ApplicationHelper
     horizontal_opts = {
       wrapper: :horizontal,
       wrapper_mappings: {
+        boolean: :horizontal_checkbox,
         radio_buttons: :horizontal_radio_buttons,
         select: :horizontal_select
       }
