@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    respond_to do |format|
+      format.html { redirect_to root_url, alert: exception.message, status: :not_found }
+      format.json { render nothing: true, status: :forbidden }
+      format.js { head :forbidden, content_type: 'text/html' }
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

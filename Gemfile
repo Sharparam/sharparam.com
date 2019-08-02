@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'cancancan', '~> 3.0'
 gem 'devise', '~> 4.6'
 gem 'omniauth', '~> 1.9'
 gem 'omniauth-github', '~> 1.3'
