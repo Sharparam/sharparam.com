@@ -10,8 +10,11 @@ class User < ApplicationRecord
          :omniauthable,
          omniauth_providers: %i[github]
 
-  validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.\-]*$/, multiline: true
+  validates :username, presence: true, uniqueness: { case_sensitive: false },
+                       format: {
+                         with: /^[a-zA-Z0-9_\.\-]*$/,
+                         multiline: true
+                       }
 
   attr_writer :login
 
@@ -36,30 +39,30 @@ class User < ApplicationRecord
     conditions = warden_conditions.dup
 
     if (login = conditions.delete(:login))
-      sql = "lower(username) = :value OR lower(email) = :value"
-      args = { value: login.downcase }
-      where(conditions.to_h).where([sql, args]).first
-    elsif conditions.has_key?(:username) || conditions.has_key?(:email)
-      conditions[:email].downcase! if conditions[:email]
-      where(conditions.to_h).first
+      find_from_login_for_database_authentication conditions, login
+    elsif conditions.key?(:username) || conditions.key?(:email)
+      find_from_keys_for_database_authentication conditions
     end
   end
 
+  def self.find_from_login_for_database_authentication(conditions, login)
+    sql = 'lower(username) = :value OR lower(email) = :value'
+    args = { value: login.downcase }
+    where(conditions.to_h).find_by [sql, args]
+  end
+
+  def self.find_from_keys_for_database_authentication(conditions)
+    conditions[:email]&.downcase!
+    find_by conditions.to_h
+  end
+
   def login
-    @login || self.username || self.email
+    @login || username || email
   end
 
   def password_required?
     super && provider.blank?
   end
-
-  #def update_with_password(params, *options)
-  #  if encrypted_password.blank?
-  #    update(params.except(:current_password), *options)
-  #  else
-  #    super
-  #  end
-  #end
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later

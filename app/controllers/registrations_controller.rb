@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller for devise registration actions.
 class RegistrationsController < Devise::RegistrationsController
   protected
 
