@@ -32,11 +32,15 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
+    can :read, Post, draft: false
+
     logged_in user if user.present?
   end
 
   private
 
   # Defines abilities for logged in users.
-  def logged_in(user); end
+  def logged_in(user)
+    can :manage, Post, user_id: user.id
+  end
 end

@@ -1,6 +1,6 @@
 - title "Edit #{resource_name.to_s.humanize}"
 
-section.section
+section.section: .container.is-narrow
   h1.title Edit #{resource_name.to_s.humanize}
 
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|

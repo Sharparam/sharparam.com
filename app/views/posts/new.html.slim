@@ -1,0 +1,9 @@
+section.section: .container
+  nav.breadcrumb aria-label="breadcrumbs"
+    ul
+      li = link_to 'Posts', posts_path
+      li.is-active = link_to 'New post', html: { 'aria-current' => 'page' }
+
+  h1.title New post
+
+  == render 'form'

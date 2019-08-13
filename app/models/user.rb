@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+  has_many :posts, dependent: :destroy
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.username = auth.info.nickname
@@ -69,6 +71,6 @@ class User < ApplicationRecord
   end
 
   def to_s
-    "#{username} <#{email}>"
+    username || email
   end
 end

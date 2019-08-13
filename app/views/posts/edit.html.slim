@@ -1,0 +1,10 @@
+section.section: .container
+  nav.breadcrumb aria-label="breadcrumbs"
+    ul
+      li = link_to 'Posts', posts_path
+      li = link_to @post.title, @post
+      li.is-active = link_to 'Edit'
+
+  h1.title Editing post
+
+  == render 'form'

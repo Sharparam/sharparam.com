@@ -1,0 +1,43 @@
+section.section: .container
+  h1.title
+    | Posts
+    = link_to new_post_path, class: 'button is-success is-large is-pulled-right', title: 'New post' do
+      span.icon.is-large: i.fas.fa-plus.fa-lg
+
+  table.table
+    thead
+      tr
+        th Title
+        th Description
+        th Body
+        th User
+        th Published?
+        th
+
+    tbody
+      - @posts.each do |post|
+        tr
+          td = link_to post.title, post
+          td
+            - if post.description.empty?
+              em None
+            - else
+              = post.description
+          td = truncate post.body
+          td = post.user
+          td: span.icon
+            - if post.draft?
+              i.fas.fa-times title="No"
+            - else
+              i.fas.fa-check title="Yes"
+          td.actions
+            - if can? :edit, post
+              = link_to edit_post_path(post), class: 'button', title: 'Edit' do
+                span.icon: i.fas.fa-edit
+            - if can? :delete, post
+              = link_to post,
+                data: { confirm: 'Are you sure?' },
+                method: :delete,
+                class: 'button is-danger',
+                title: 'Delete' do
+                span.icon: i.fas.fa-trash

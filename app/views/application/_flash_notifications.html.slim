@@ -1,8 +1,9 @@
 - return if flash.empty?
+- flash.delete(:timedout)
 
 section.notifications
-  - flash.delete(:timedout)
-  - flash.each do |key, value|
-    .notification class="is-#{key}"
-      button.delete
-      = value
+  .container
+    - flash.each do |key, value|
+      .notification class="is-#{key}"
+        button.delete
+        = value

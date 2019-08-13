@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   get 'about', to: 'home#about'
 
+  resources :posts
+
   root 'home#index'
 end

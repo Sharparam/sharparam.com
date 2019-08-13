@@ -34,4 +34,8 @@ module ApplicationHelper
     merged = options.merge horizontal_opts
     simple_form_for object, *(args << merged), &block
   end
+
+  def markdown(text)
+    Sharparam::Markdown.render(text)
+  end
 end

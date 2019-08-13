@@ -1,0 +1,18 @@
+section.section: .container
+  nav.breadcrumb aria-label="breadcrumbs"
+    ul
+      li = link_to 'Posts', posts_path
+      li.is-active = link_to @post.title, html: { 'aria-current' => 'page' }
+
+  = render @post
+
+  p.post-actions
+    - if can? :edit, @post
+      = link_to edit_post_path(@post), class: 'button' do
+        span.icon: i.fas.fa-edit
+    - if can? :delete, @post
+      = link_to @post,
+        class: 'button is-danger',
+        method: :delete,
+        data: { confirm: 'Are you sure?' } do
+        span.icon: i.fas.fa-trash

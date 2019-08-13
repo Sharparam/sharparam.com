@@ -32,9 +32,12 @@
 en:
   home:
     title: Home
+  blog:
+    title: Blog
   contact: Contact
   about: About
   login: Login
+  logout: Logout
   copyright: 'Copyright © 2019 by Adam Hellberg.'
   time:
     am: ''

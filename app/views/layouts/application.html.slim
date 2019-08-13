@@ -30,7 +30,7 @@ html
     - else
       header
         = render 'navbar', class: 'is-success'
-    main#main.container
+    main#main
       = render 'flash_notifications'
       == content_for?(:content) ? yield(:content) : yield
     = render 'footer'

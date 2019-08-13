@@ -1,0 +1,11 @@
+article
+  h1.title = link_to post.title, post
+  - unless post.description.empty?
+    p = post.description
+  p.metadata
+    span.created-at
+      | Created
+      span.created-at-time.has-title-hint title=post.created_at.iso8601
+        =<> time_ago_in_words(post.created_at)
+        | ago
+  = markdown post.body

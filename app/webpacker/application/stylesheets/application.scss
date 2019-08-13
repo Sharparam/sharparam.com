@@ -4,6 +4,10 @@
 @import 'landing';
 @import 'form';
 
-// body {
-//   font-family: sans-serif;
-// }
+.has-title-hint {
+  text-decoration: dotted underline;
+}
+
+.container.is-narrow {
+  max-width: 20rem;
+}

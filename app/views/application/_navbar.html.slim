@@ -10,6 +10,7 @@ nav.navbar class="#{local_assigns[:class] || ''}" role="navigation" aria-label="
     #navbar.navbar-menu
       .navbar-start
         = active_link_to t('home.title'), root_path, class: 'navbar-item', active: :exclusive
+        = active_link_to t('blog.title'), posts_path, class: 'navbar-item'
         = active_link_to t(:contact), contact_path, class: 'navbar-item'
         = active_link_to t(:about), about_path, class: 'navbar-item'
       .navbar-end

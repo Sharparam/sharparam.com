@@ -1,6 +1,6 @@
 - title 'Log in'
 
-section.section
+section.section.is-mobile: .container.is-narrow
   h1.title Log in
 
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
