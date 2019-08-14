@@ -4,7 +4,9 @@ require 'application_system_test_case'
 
 class PostsTest < ApplicationSystemTestCase
   setup do
+    @user = users(:one)
     @post = posts(:one)
+    sign_in @user
   end
 
   test 'visiting the index' do
@@ -19,7 +21,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in 'Body', with: @post.body
     fill_in 'Description', with: @post.description
     fill_in 'Title', with: @post.title
-    fill_in 'User', with: @post.user_id
+    fill_in 'Draft', with: @post.draft
     click_on 'Create Post'
 
     assert_text 'Post was successfully created'
@@ -33,7 +35,7 @@ class PostsTest < ApplicationSystemTestCase
     fill_in 'Body', with: @post.body
     fill_in 'Description', with: @post.description
     fill_in 'Title', with: @post.title
-    fill_in 'User', with: @post.user_id
+    fill_in 'Draft', with: @post.draft
     click_on 'Update Post'
 
     assert_text 'Post was successfully updated'
@@ -46,6 +48,6 @@ class PostsTest < ApplicationSystemTestCase
       click_on 'Destroy', match: :first
     end
 
-    assert_text 'Post was successfully destroyed'
+    assert_text 'Post was successfully deleted'
   end
 end

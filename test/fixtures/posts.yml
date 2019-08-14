@@ -4,10 +4,12 @@ one:
   title: MyString
   description: MyString
   body: MyText
+  draft: true
   user: one
 
 two:
   title: MyString
   description: MyString
   body: MyText
+  draft: false
   user: two
