@@ -1,0 +1,11 @@
+.post {
+  .title, .subtitle {
+    &:not(.is-spaced) + .metadata {
+      margin-top: -1.25rem;
+    }
+  }
+
+  .metadata + p {
+    margin-top: 1.25rem;
+  }
+}
