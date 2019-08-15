@@ -7,7 +7,9 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
-  def index; end
+  def index
+    @posts = @posts.recent
+  end
 
   # GET /posts/1
   # GET /posts/1.json
