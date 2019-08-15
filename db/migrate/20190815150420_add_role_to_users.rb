@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Migration to add a role column to users.
 class AddRoleToUsers < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :role, :string

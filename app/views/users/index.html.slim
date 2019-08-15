@@ -15,7 +15,7 @@ section.section: .container
           td = link_to user.username, user
           td = link_to user.email, user
           td
-            - if user.has_role?
+            - if user.role?
               = user.role.humanize
             - else
               em No role

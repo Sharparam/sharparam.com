@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   end
 
   def updated?
-    updated_at - created_at > 0
+    (updated_at - created_at).positive?
   end
 
   def to_param
