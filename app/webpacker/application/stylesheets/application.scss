@@ -4,6 +4,10 @@
 @import 'landing';
 @import 'form';
 
+body {
+  background: url('../images/grey.png');
+}
+
 .has-title-hint {
   text-decoration: dotted underline;
 }
