@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'about', to: 'home#about'
 
+  resources :users, only: %i[index show]
   resources :posts
 
   root 'home#index'

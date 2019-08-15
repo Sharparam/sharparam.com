@@ -32,15 +32,32 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
+    clear_aliased_actions
+
+    alias_action :index, :show, to: :read
+    alias_action :new, to: :create
+    alias_action :edit, to: :update
+    alias_action :delete, to: :destroy
+    alias_action :update, :destroy, to: :modify
+
+    @user = user
+
     can :read, Post, draft: false
 
-    logged_in user if user.present?
+    logged_in if user.present?
   end
 
   private
 
   # Defines abilities for logged in users.
-  def logged_in(user)
-    can :manage, Post, user_id: user.id
+  def logged_in
+    can :read, User, id: @user.id
+    can :modify, Post, user_id: @user.id
+
+    send(@user.role.to_sym) if @user.role
+  end
+
+  def admin
+    can :manage, :all
   end
 end

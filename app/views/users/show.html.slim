@@ -1,0 +1,7 @@
+section.section: .container
+  h1.title = @user
+  h3.subtitle = link_to @user.email, "mailto:#{@user.email}"
+
+  = render @user
+
+  p = link_to 'Back', users_path, class: 'button'

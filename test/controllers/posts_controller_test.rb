@@ -6,7 +6,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @user = users(:one)
+    @user = users(:admin)
     @post = posts(:one)
     sign_in @user
   end

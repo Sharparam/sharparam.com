@@ -20,6 +20,7 @@ nav.navbar class="#{local_assigns[:class] || ''}" role="navigation" aria-label="
               span.icon: i.fas.fa-user
               span = current_user.username
             .navbar-dropdown
+              = link_to 'Show profile', current_user, class: 'navbar-item'
               = link_to 'Edit profile', edit_user_registration_path, class: 'navbar-item'
               hr.navbar-divider
               = link_to t(:logout), destroy_user_session_path, method: :delete, class: 'navbar-item'

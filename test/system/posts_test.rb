@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class PostsTest < ApplicationSystemTestCase
   setup do
-    @user = users(:one)
+    @user = users(:admin)
     @post = posts(:one)
     sign_in @user
   end

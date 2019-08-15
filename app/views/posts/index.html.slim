@@ -1,10 +1,11 @@
 section.section: .container
   h1.title
     | Posts
-    = link_to new_post_path, class: 'button is-success is-large is-pulled-right', title: 'New post' do
-      span.icon.is-large: i.fas.fa-plus.fa-lg
+    - if can? :create, Post
+      = link_to new_post_path, class: 'button is-success is-large is-pulled-right', title: 'New post' do
+        span.icon.is-large: i.fas.fa-plus.fa-lg
 
-  table.table
+  table.table.is-fullwidth
     thead
       tr
         th Title

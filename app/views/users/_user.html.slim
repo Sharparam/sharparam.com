@@ -1,0 +1,21 @@
+table.table
+  tbody
+    tr
+      th ID
+      td = @user.id
+    tr
+      th Username
+      td = @user.username
+    tr
+      th Email
+      td = link_to @user.email, "mailto:#{@user.email}"
+    tr
+      th Role
+      td
+        - if @user.has_role?
+          = @user.role.humanize
+        - else
+          em No role
+    tr
+      th Post count
+      td = @user.posts.count

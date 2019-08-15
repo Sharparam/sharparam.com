@@ -2,6 +2,8 @@
 
 # The application user
 class User < ApplicationRecord
+  ROLES = %i[admin]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -64,6 +66,12 @@ class User < ApplicationRecord
 
   def password_required?
     super && provider.blank?
+  end
+
+  def has_role?(base_role = nil)
+    return true if base_role.nil? && !role.nil?
+    return false if base_role.nil? || role.nil?
+    ROLES.index(base_role.to_sym) <= ROLES.index(role.to_sym)
   end
 
   def send_devise_notification(notification, *args)

@@ -1,0 +1,21 @@
+section.section: .container
+  h1.title Users
+
+  table.table.is-fullwidth
+    thead
+      tr
+        th ID
+        th Username
+        th Email
+        th Role
+    tbody
+      - @users.each do |user|
+        tr
+          td = link_to user.id, user
+          td = link_to user.username, user
+          td = link_to user.email, user
+          td
+            - if user.has_role?
+              = user.role.humanize
+            - else
+              em No role
