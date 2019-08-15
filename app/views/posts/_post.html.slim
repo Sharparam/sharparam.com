@@ -11,4 +11,10 @@ article.post
     span.created-by
       ' by
       span.created-by-user = post.user
+    - if post.updated?
+      span.updated-at
+        ' , last updated
+        span.updated-at-time.has-title-hint title=post.updated_at.iso8601
+          => time_ago_in_words(post.updated_at)
+          | ago
   = markdown post.body

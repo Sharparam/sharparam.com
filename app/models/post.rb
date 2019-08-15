@@ -13,6 +13,10 @@ class Post < ApplicationRecord
     draft
   end
 
+  def updated?
+    updated_at - created_at > 0
+  end
+
   def to_param
     "#{id}-#{title.parameterize}"
   end

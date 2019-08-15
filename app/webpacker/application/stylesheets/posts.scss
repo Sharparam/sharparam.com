@@ -5,7 +5,19 @@
     }
   }
 
-  .metadata + p {
-    margin-top: 1.25rem;
+  .metadata {
+    @extend .has-text-grey;
+
+    & + p {
+      margin-top: 1.25rem;
+    }
+  }
+}
+
+.post-actions {
+  margin-top: 1.25rem;
+
+  a + a {
+    margin-left: 1rem;
   }
 }
