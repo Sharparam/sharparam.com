@@ -36,6 +36,7 @@ gem 'redcarpet', '~> 3.4'
 gem 'slim-rails', '~> 3.2'
 
 gem 'active_link_to', '~> 1.0'
+gem 'kaminari', '~> 1.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

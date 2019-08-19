@@ -2,7 +2,7 @@ section.section: .container
   nav.breadcrumb aria-label="breadcrumbs"
     ul
       li = link_to 'Posts', posts_path
-      li.is-active = link_to @post.title, html: { 'aria-current' => 'page' }
+      li.is-active = link_to @post.title, @post, 'aria-current': 'page'
 
   = render @post
 

@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
-  def index; end
+  def index
+    @users = @users.page(params[:page]).per(50)
+  end
 
   # GET /users/1
   # GET /users/1.json

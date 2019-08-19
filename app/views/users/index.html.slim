@@ -19,3 +19,6 @@ section.section: .container
               = user.role.humanize
             - else
               em No role
+
+  = page_entries_info @users
+  = paginate @users
