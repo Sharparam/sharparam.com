@@ -1,0 +1,3 @@
+#!/bin/sh
+
+foreman start -m "web=1,webpack=1"
