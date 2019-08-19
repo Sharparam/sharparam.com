@@ -6,39 +6,42 @@ section.section.posts: .container
       = link_to new_post_path, class: 'button is-success is-large is-pulled-right', title: 'New post' do
         span.icon.is-large: i.fas.fa-plus.fa-lg
 
-  - @posts.each do |post|
-    article.post
-      h3.title
-        = link_to post.title, post
-        span.post-actions.is-pulled-right
-          - if can? :edit, post
-            = link_to edit_post_path(post), class: 'button', title: 'Edit' do
-              span.icon: i.fas.fa-edit
-          - if can? :delete, post
-            = link_to post,
-              data: { confirm: 'Are you sure?' },
-              method: :delete,
-              class: 'button is-danger',
-              title: 'Delete' do
-              span.icon: i.fas.fa-trash
-      p.metadata
-        span.created-at
-          ' Posted
-          span.created-at-time.has-title-hint title=post.created_at.iso8601
-            => time_ago_in_words(post.created_at)
-            ' ago
-        span.created-by
-          ' by
-          span.created-by-user = post.user
-        - if post.updated?
-          span.updated-at
-            ' , last updated
-            span.updated-at-time.has-title-hint title=post.updated_at.iso8601
-              => time_ago_in_words(post.updated_at)
-              | ago
-      - if post.description.empty?
-        = truncate(strip_tags(post.body), length: 144)
-      - else
-        = markdown(post.description)
+  - if @posts.empty?
+    h3.title No posts yet :(
+  - else
+    - @posts.each do |post|
+      article.post
+        h3.title
+          = link_to post.title, post
+          span.post-actions.is-pulled-right
+            - if can? :edit, post
+              = link_to edit_post_path(post), class: 'button', title: 'Edit' do
+                span.icon: i.fas.fa-edit
+            - if can? :delete, post
+              = link_to post,
+                data: { confirm: 'Are you sure?' },
+                method: :delete,
+                class: 'button is-danger',
+                title: 'Delete' do
+                span.icon: i.fas.fa-trash
+        p.metadata
+          span.created-at
+            ' Posted
+            span.created-at-time.has-title-hint title=post.created_at.iso8601
+              => time_ago_in_words(post.created_at)
+              ' ago
+          span.created-by
+            ' by
+            span.created-by-user = post.user
+          - if post.updated?
+            span.updated-at
+              ' , last updated
+              span.updated-at-time.has-title-hint title=post.updated_at.iso8601
+                => time_ago_in_words(post.updated_at)
+                | ago
+        - if post.description.empty?
+          = truncate(strip_tags(post.body), length: 144)
+        - else
+          = markdown(post.description)
 
-  = paginate @posts
+    = paginate @posts
