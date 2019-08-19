@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 section.notifications {
   margin: 0;
   padding: 0;
@@ -14,3 +16,5 @@ section.notifications {
 .notification.is-alert {
   @extend .is-danger;
 }
+
+/* purgecss end ignore */
